@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h1 class="mb-4">投稿一覧</h1>
+
+  <% @posts.each do |post| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h4><%= link_to post.title, post_path(post) %></h4>
+        <p class="text-muted">ジャンル：<%= post.category %></p>
+        <p><%= truncate(post.content, length: 100) %></p>
+        <p class="text-muted small"><%= l post.created_at, format: :short %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= link_to "新規投稿", new_post_path, class: "btn btn-primary mt-3" %>
+  <% end %>
+  
+</div>

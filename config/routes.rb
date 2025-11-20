@@ -1,0 +1,25 @@
+Rails.application.routes.draw do
+  get "posts/index"
+  get "posts/show"
+  get "posts/new"
+  get "posts/create"
+  get "posts/edit"
+  get "posts/update"
+  get "posts/destroy"
+
+  devise_for :users
+
+  # GETログアウトを許可（Turbo問題の回避）
+  devise_scope :user do
+    get "users/sign_out", to: "devise/sessions#destroy"
+  end
+
+  root "pages#home"
+
+  # ★ここにマイページルートを追加
+  resources :posts do
+    collection do
+      get :mypage   # ← 自分の投稿一覧表示用
+    end
+  end
+end

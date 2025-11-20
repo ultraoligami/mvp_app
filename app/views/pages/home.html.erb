@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="text-center">
+    <h1 class="mb-4">さぼログ</h1>
+    <p class="lead">「できなかったこと」を記録しよう</p>
+
+    <!-- 未ログインでも投稿一覧へ行ける共通ボタン -->
+    <a href="<%= posts_path %>" class="btn btn-success btn-lg mt-3">
+      投稿をチェックする
+    </a>
+
+    <% if user_signed_in? %>
+      <!-- ログインしている場合 -->
+      <a href="<%= mypage_posts_path %>" class="btn btn-success btn-lg mt-3 ms-2">
+        マイページへ（自分の投稿）
+      </a>
+
+      <%= link_to "ログアウト",
+          destroy_user_session_path,
+          method: :delete,
+          data: { turbo: false },
+          class: "btn btn-outline-danger btn-lg mt-3 ms-2" %>
+
+    <% else %>
+      <!-- ログインしていない場合 -->
+      <a href="<%= new_user_registration_path %>" class="btn btn-primary btn-lg mt-3 ms-2">
+        新規登録
+      </a>
+      <a href="<%= new_user_session_path %>" class="btn btn-outline-primary btn-lg mt-3 ms-2">
+        ログイン
+      </a>
+    <% end %>
+  </div>
+</div>

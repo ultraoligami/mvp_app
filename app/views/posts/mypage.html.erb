@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h1>マイページ</h1>
+  <p class="text-muted">あなたが投稿した記録です</p>
+
+  <!-- ▼追加：プロフィール編集ボタン -->
+  <div class="mb-3">
+    <%= link_to "プロフィールを編集する",
+                edit_user_registration_path,
+                class: "btn btn-outline-primary" %>
+  </div>
+  <!-- ▲追加ここまで -->
+
+  <hr>
+
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h3><%= link_to post.title, post_path(post) %></h3>
+          <p class="text-muted">ジャンル：<%= post.category %></p>
+          <p><%= truncate(post.content, length: 100) %></p>
+          <p class="text-muted small"><%= l post.created_at, format: :long %></p>
+          <%= link_to "詳細を見る", post_path(post), class: "btn btn-primary btn-sm" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>まだ投稿がありません。</p>
+  <% end %>
+
+  <%= link_to "新規投稿", new_post_path, class: "btn btn-success mt-3" %>
+</div>

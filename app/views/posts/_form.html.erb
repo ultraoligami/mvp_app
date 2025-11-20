@@ -1,0 +1,22 @@
+<%= form_with model: post, local: true, class: "mt-4" do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :title, "タイトル", class: "form-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :category, "ジャンル", class: "form-label" %>
+    <%= f.select :category,
+          ["家事", "仕事", "健康", "勉強", "お金", "人間関係", "その他"],
+          { include_blank: "選択してください" },
+          class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :content, "内容", class: "form-label" %>
+    <%= f.text_area :content, rows: 6, class: "form-control" %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
