@@ -1,6 +1,8 @@
+// Bootstrap を使う場合の正しい構成
+@import "bootstrap";
+
+// Sprockets 用ディレクティブ
 /*
  *= require_tree .
  *= require_self
  */
-
- @import "bootstrap";
