@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "static_pages/terms"
+  get "static_pages/privacy"
   get "posts/index"
   get "posts/show"
   get "posts/new"
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   get "posts/edit"
   get "posts/update"
   get "posts/destroy"
+  get "terms", to: "static_pages#terms"
+  get "privacy", to: "static_pages#privacy"
 
   devise_for :users
 

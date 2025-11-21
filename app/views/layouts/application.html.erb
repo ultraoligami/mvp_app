@@ -82,6 +82,13 @@
 
     <%= yield %>
 
+    <!-- ▼▼ フッター ▼▼ -->
+    <footer class="text-center mt-5 mb-4">
+      <%= link_to "利用規約", terms_path, class: "text-secondary me-3" %>
+      <%= link_to "プライバシーポリシー", privacy_path, class: "text-secondary" %>
+    </footer>
+    <!-- ▲▲ フッター ▲▲ -->
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
