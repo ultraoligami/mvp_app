@@ -4,10 +4,24 @@
   <% @posts.each do |post| %>
     <div class="card mb-3">
       <div class="card-body">
+
         <h4><%= link_to post.title, post_path(post) %></h4>
         <p class="text-muted">ジャンル：<%= post.category %></p>
         <p><%= truncate(post.content, length: 100) %></p>
+
+        <!-- ▼ 匿名かどうか判定 ▼ -->
+        <p class="text-muted small">
+          投稿者：
+          <% if post.is_anonymous? %>
+            匿名さん
+          <% else %>
+            <%= post.user.nickname %>
+          <% end %>
+        </p>
+        <!-- ▲ 匿名かどうか判定 ▲ -->
+
         <p class="text-muted small"><%= l post.created_at, format: :short %></p>
+
       </div>
     </div>
   <% end %>
