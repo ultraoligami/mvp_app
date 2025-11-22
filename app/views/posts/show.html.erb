@@ -20,33 +20,30 @@
   <hr>
 
   <!-- ▼ SNSシェア機能 ▼ -->
-  <div class="mt-4">
-    <h5>共有する</h5>
 
-    <!-- X (Twitter) -->
-    <%= link_to "Xでシェア",
-          "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(@post.title)}&url=#{post_url(@post)}",
-          target: "_blank",
-          rel: "noopener",
-          class: "btn btn-dark me-2" %>
+<div class="mt-4">
+  <h5>SNSでシェアする</h5>
+
+  <div class="d-flex gap-3 mt-2">
+
+    <!-- X（旧Twitter） -->
+    <%= link_to "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(@post.title)}&url=#{post_url(@post)}",
+        target: "_blank",
+        rel: "noopener",
+        class: "btn btn-outline-secondary rounded-circle p-3" do %>
+      <i class="fa-brands fa-x-twitter"></i>
+    <% end %>
 
     <!-- LINE -->
-    <%= link_to "LINEで送る",
-          "https://social-plugins.line.me/lineit/share?url=#{post_url(@post)}",
-          target: "_blank",
-          rel: "noopener",
-          class: "btn btn-success me-2" %>
-
-    <!-- URLコピー：JS -->
-    <button class="btn btn-secondary" onclick="copyPostUrl()">リンクをコピー</button>
+    <%= link_to "https://social-plugins.line.me/lineit/share?url=#{post_url(@post)}",
+        target: "_blank",
+        rel: "noopener",
+        class: "btn btn-outline-secondary rounded-circle p-3" do %>
+      <i class="fa-brands fa-line"></i>
+    <% end %>
   </div>
+</div>
 
-  <script>
-    function copyPostUrl() {
-      navigator.clipboard.writeText(window.location.href);
-      alert("URLをコピーしました！");
-    }
-  </script>
   <!-- ▲ SNSシェア機能 ▲ -->
 
   <% if user_signed_in? && @post.user == current_user %>
