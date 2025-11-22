@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "contacts/new"
+  get "contacts/create"
+  get "contacts/thanks"
   get "static_pages/terms"
   get "static_pages/privacy"
   get "posts/index"
@@ -16,6 +19,10 @@ Rails.application.routes.draw do
   # GETログアウトを許可（Turbo問題の回避）
   devise_scope :user do
     get "users/sign_out", to: "devise/sessions#destroy"
+  end
+
+  resource :contacts, only: [:new, :create] do
+    get :thanks
   end
 
   root "pages#home"
