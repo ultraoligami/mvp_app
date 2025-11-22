@@ -104,7 +104,7 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   # --- ActionMailer Settings (SendGrid) ---
-  
+
   config.action_mailer.default_url_options = {
     host: "mvp-app-p33l.onrender.com",
     protocol: "https"
@@ -114,7 +114,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",
     port: 587,
-    domain: "mvp-app-p33l.onrender.com",
+    domain: "icloud.com",
     authentication: :plain,
     user_name: "apikey",
     password: ENV["SENDGRID_API_KEY"],
