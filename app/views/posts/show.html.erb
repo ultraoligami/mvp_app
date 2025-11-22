@@ -19,7 +19,16 @@
 
   <hr>
 
-  <!-- ▼ SNSシェア機能 ▼ -->
+ 
+  <% if user_signed_in? && @post.user == current_user %>
+    <%= link_to "編集", edit_post_path(@post), class: "btn btn-warning me-2" %>
+    <%= button_to "削除", post_path(@post),
+      method: :delete,
+      form: { class: "d-inline", onsubmit: "return confirm('本当に削除しますか？');" },
+      class: "btn btn-danger" %>
+  <% end %>
+
+ <!-- ▼ SNSシェア機能 ▼ -->
 
 <div class="mt-4">
   <h5>SNSでシェアする</h5>
@@ -46,13 +55,7 @@
 
   <!-- ▲ SNSシェア機能 ▲ -->
 
-  <% if user_signed_in? && @post.user == current_user %>
-    <%= link_to "編集", edit_post_path(@post), class: "btn btn-warning me-2" %>
-    <%= button_to "削除", post_path(@post),
-      method: :delete,
-      form: { class: "d-inline", onsubmit: "return confirm('本当に削除しますか？');" },
-      class: "btn btn-danger" %>
-  <% end %>
+
 
   <%= link_to "一覧に戻る", posts_path, class: "btn btn-secondary mt-3" %>
 </div>
