@@ -1,5 +1,5 @@
 class ContactMailer < ApplicationMailer
-    default to: "hazukiyokoyama0827@gmail.com"
+    default to: "kinako10012019@icloud.com"
   
     def send_contact(contact)
       @contact = contact
