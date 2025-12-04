@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get "terms", to: "static_pages#terms"
   get "privacy", to: "static_pages#privacy"
 
+  post "ai/humor", to: "ai#humor"
+  
   devise_for :users
 
   # GETログアウトを許可（Turbo問題の回避）
@@ -21,9 +23,6 @@ Rails.application.routes.draw do
     get "users/sign_out", to: "devise/sessions#destroy"
   end
 
-  resource :contacts, only: [:new, :create] do
-    get :thanks
-  end
 
   root "pages#home"
 

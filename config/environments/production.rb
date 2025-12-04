@@ -105,19 +105,5 @@ Rails.application.configure do
 
   # --- ActionMailer Settings (SendGrid) ---
 
-  config.action_mailer.default_url_options = {
-    host: "mvp-app-p33l.onrender.com",
-    protocol: "https"
-  }
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: "smtp.sendgrid.net",
-    port: 587,
-    domain: "icloud.com",
-    authentication: :plain,
-    user_name: "apikey",
-    password: ENV["SENDGRID_API_KEY"],
-    enable_starttls_auto: true
-  }
 end
