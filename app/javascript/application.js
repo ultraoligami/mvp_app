@@ -1,4 +1,5 @@
 import "@hotwired/turbo-rails"
-import "bootstrap"
+Turbo.session.drive = false  // ← Turbo無効化（DELETEを確実に動かす）
+
 import "controllers"
 import "ai_humor"

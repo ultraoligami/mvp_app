@@ -1,4 +1,4 @@
-document.addEventListener("turbo:load", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("ai-humor-btn");
     const textarea = document.getElementById("post_content");
   
@@ -19,7 +19,7 @@ document.addEventListener("turbo:load", () => {
   
       const data = await response.json();
   
-      textarea.value = data.text;  // ← “text” に統一
+      textarea.value = data.text;
   
       btn.disabled = false;
       btn.innerText = "AIでユーモアに変換";

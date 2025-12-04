@@ -1,0 +1,808 @@
+Last login: Tue Nov 18 07:34:26 on ttys001
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % gem install bundler
+
+
+^CERROR:  Interrupted
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % docker compose exec web bash
+no configuration file provided: not found
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % gem install bundler
+bundler -v
+Fetching bundler-4.0.0.gem
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /Library/Ruby/Gems/2.6.0 directory.
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % bundler -v
+Bundler version 1.17.2
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % gem install bundler
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /Library/Ruby/Gems/2.6.0 directory.
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % sudo gem install bundler
+Password:
+Sorry, try again.
+Password:
+Sorry, try again.
+Password:
+bundle -v
+Fetching bundler-4.0.0.gem
+ERROR:  Error installing bundler:
+	The last version of bundler (>= 0) to support your Ruby & RubyGems was 2.4.22. Try installing it with `gem install bundler -v 2.4.22`
+	bundler requires Ruby version >= 3.2.0. The current ruby version is 2.6.10.210.
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % bundle -v
+Bundler version 1.17.2
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % brew -v
+Homebrew 4.4.26
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % brew install rbenv ruby-build
+==> Auto-updating Homebrew...
+Adjust how often this is run with HOMEBREW_AUTO_UPDATE_SECS or disable with
+HOMEBREW_NO_AUTO_UPDATE. Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+==> Downloading https://ghcr.io/v2/homebrew/core/portable-ruby/blobs/sha256:c6946ba2c387b47934e77c352c2056489421003ec7ddb2abf246cef2168ec140
+######################################################################### 100.0%
+==> Pouring portable-ruby-3.4.7.arm64_big_sur.bottle.tar.gz
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+abpoa: SIMD-based C library for fast partial order alignment using adaptive band
+act_runner: Action runner for Gitea based on Gitea's fork of act
+add-determinism: Build postprocessor to reset metadata fields for build reproducibility
+addlicense: Scan directories recursively to ensure source files have license headers
+addons-linter: Firefox Add-ons linter, written in JavaScript
+aiac: Artificial Intelligence Infrastructure-as-Code Generator
+aicommit2: Reactive CLI that generates commit messages for Git and Jujutsu with AI
+aiken: Modern smart contract platform for Cardano
+air: Fast and opinionated formatter for R code
+airtable-mcp-server: MCP Server for Airtable
+aklomp-base64: Fast Base64 stream encoder/decoder in C99, with SIMD acceleration
+alejandra: Command-line tool for formatting Nix Code
+anchor: Solana Program Framework
+ansible@12: Automate deployment, configuration, and upgrading
+anubis: Protect resources from scraper bots
+anyzig: Universal zig executable that runs any version of zig
+apache-flink@1: Scalable batch and stream data processing
+apache-polaris: Interoperable, open source catalog for Apache Iceberg
+api-linter: Linter for APIs defined in protocol buffers
+apigeecli: Apigee management API command-line interface
+archgw: CLI for Arch Gateway
+arp-scan-rs: ARP scan tool written in Rust for fast local network scans
+asm-lsp: Language server for NASM/GAS/GO Assembly
+assimp@5: Portable library for importing many well-known 3D model formats
+atomic_queue: C++14 lock-free queues
+attempt-cli: CLI for retrying fallible commands
+audiowaveform: Generate waveform data and render waveform images from audio files
+auto-editor: Efficient media analysis and rendering
+autocycler: Tool for generating consensus long-read assemblies for bacterial genomes
+aws-lc: General-purpose cryptographic library
+aws-spiffe-workload-helper: Helper for providing AWS credentials to workloads using their SPIFFE identity
+ayatana-ido: Ayatana Indicator Display Objects
+b4: Tool to work with public-inbox and patch archives
+backgroundremover: Remove background from images and video using AI
+backlog-md: Markdown‑native Task Manager & Kanban visualizer for any Git repository
+badread: Long read simulator that can imitate many types of read problems
+bb-cli: Bitbucket Rest API CLI written in pure PHP
+bedtk: Simple toolset for BED files
+benchi: Benchmarking tool for data pipelines
+bento: Fancy stream processing made operationally mundane
+bkmr: Unified CLI Tool for Bookmark, Snippet, and Knowledge Management
+blueprint-compiler: Markup language and compiler for GTK 4 user interfaces
+boa: Embeddable and experimental Javascript engine written in Rust
+bom: Utility to generate SPDX-compliant Bill of Materials manifests
+bower-mail: Curses terminal client for the Notmuch email system
+brename: Cross-platform command-line tool for safe batch renaming via regular expressions
+breseq: Computational pipeline for finding mutations in short-read DNA resequencing data
+brush: Bourne RUsty SHell (command interpreter)
+bsc: Bluespec Compiler (BSC)
+bstring: Fork of Paul Hsieh's Better String Library
+btcli: Bittensor command-line tool
+btllib: Bioinformatics Technology Lab common code library
+buffrs: Modern protobuf package management
+bulletty: Pretty feed reader (ATOM/RSS) that stores articles in Markdown files
+bumpp: Interactive CLI that bumps your version numbers and more
+bunster: Compile shell scripts to static binaries
+burrow: Kafka Consumer Lag Checking
+caesiumclt: Fast and efficient lossy and/or lossless image compression tool
+cagent: Agent Builder and Runtime by Docker Engineering
+cai: CLI tool for prompting LLMs
+camlpdf: OCaml library for reading, writing and modifying PDF files
+cargo-careful: Execute Rust code carefully, with extra checking along the way
+cargo-clone: Cargo subcommand to fetch the source code of a Rust crate
+cargo-component: Create WebAssembly components based on the component model proposal
+cargo-geiger: Detects usage of unsafe Rust in a Rust crate and its dependencies
+cargo-shear: Detect and remove unused dependencies from `Cargo.toml` in Rust projects
+ccusage: CLI tool for analyzing Claude Code usage from local JSONL files
+changelogen: Generate Beautiful Changelogs using Conventional Commits
+chart-releaser: Hosting Helm Charts via GitHub Pages and Releases
+chawan: TUI web browser with CSS, inline image and JavaScript support
+chdig: Dig into ClickHouse with TUI interface
+chrome-devtools-mcp: Chrome DevTools for coding agents
+clang-include-graph: Simple tool for visualizing and analyzing C/C++ project include graph
+claude-cmd: Claude Code Commands Manager
+claude-code-router: Tool to route Claude Code requests to different models and customize any request
+claude-code-templates: CLI tool for configuring and monitoring Claude Code
+claude-hooks: Hook system for Claude Code
+claude-squad: Manage multiple AI agents like Claude Code, Aider and Codex in your terminal
+claudekit: Intelligent guardrails and workflow automation for Claude Code
+clipper2: Polygon clipping and offsetting library
+clippy: Copy files from your terminal that actually paste into GUI apps
+cliproxyapi: Wrap Gemini CLI, Codex, Claude Code, Qwen Code as an API service
+codebook-lsp: Code-aware spell checker language server
+cogapp: Small bits of Python computation for static files
+concurrentqueue: Fast multi-producer, multi-consumer lock-free concurrent queue for C++11
+config-file-validator: CLI tool to validate different configuration file types
+container: Create and run Linux containers using lightweight virtual machines
+container-canary: Test and validate container requirements against versioned manifests
+container-compose: Manage Apple Container with Docker Compose files
+context7-mcp: Up-to-date code documentation for LLMs and AI code editors
+cookcli: CLI-tool for cooking recipes formated using Cooklang
+copyparty: Portable file server
+corepack: Package acting as bridge between Node projects and their package managers
+cornelis: Neovim support for Agda
+cpdf: PDF Command-line Tools
+cpptrace: Simple, portable, and self-contained stacktrace library for C++11 and newer
+cram: Functional testing framework for command-line applications
+crd2pulumi: Generate typed CustomResources from a Kubernetes CustomResourceDefinition
+credo: Static code analysis tool for the Elixir
+ctrld: Highly configurable, multi-protocol DNS forwarding proxy
+dagu: Lightweight and powerful workflow engine
+damask-grid: Grid solver of DAMASK - Multi-physics crystal plasticity simulation package
+darker: Apply Black formatting only in regions changed since last commit
+dash-mpd-cli: Download media content from a DASH-MPEG or DASH-WebM MPD manifest
+dblab: Database client every command-line junkie deserves
+deck: Creates slide deck using Markdown and Google Slides
+decker: HyperCard-like multimedia sketchpad
+desed: Debugger for Sed
+devcockpit: TUI system monitor for Apple Silicon
+dexidp: OpenID Connect Identity and OAuth 2.0 Provider
+diagram: CLI app to convert ASCII arts into hand drawn diagrams
+diffnav: Git diff pager based on delta but with a file tree
+dish: Lightweight monitoring service that efficiently checks socket connections
+dnglab: Camera RAW to DNG file format converter
+dnote: Simple command-line notebook
+docker-compose-langserver: Language service for Docker Compose documents
+docker-debug: Use new container attach on already container go on debug
+dockerfmt: Dockerfile format and parser. a modern dockfmt
+docmd: Minimal Markdown documentation generator
+doge: Command-line DNS client
+doh: Stand-alone DNS-over-HTTPS resolver using libcurl
+domain-check: CLI tool for checking domain availability using RDAP and WHOIS protocols
+doxx: Terminal document viewer for .docx files
+dqlite: Embeddable, replicated and fault-tolerant SQLite-powered engine
+dstp: Run common networking tests against your site
+dumbpipe: Unix pipes between devices
+dvisvgm: Fast DVI to SVG converter
+e1s: TUI for managing AWS ECS, inspired by k9s
+e2b: CLI to manage E2B sandboxes and templates
+eask-cli: CLI for building, running, testing, and managing your Emacs Lisp dependencies
+easyeda2kicad: Converts electronic components from EasyEDA or LCSC to a KiCad library
+eigen@3: C++ template library for linear algebra
+electric: Real-time sync for Postgres
+elf2uf2-rs: Convert ELF files to UF2 for USB Flashing Bootloaders
+elfio: Header-only C++ library for reading and generating ELF files
+emmylua_ls: Lua Language Server
+endlessh: SSH tarpit that slowly sends an endless banner
+ente-cli: Utility for exporting data from Ente and decrypt the export from Ente Auth
+entt: Fast and reliable entity-component system for C++
+erlang-language-platform: LSP server and CLI for the Erlang programming language
+erlang@27: Programming language for highly scalable real-time systems
+erlfmt: Automated code formatter for Erlang
+errcheck: Finds silently ignored errors in Go code
+execline: Interpreter-less scripting language
+execstack: Utility to set/clear/query executable stack bit
+faceprints: Detect and label images of faces using local Vision.framework models
+fake-gcs-server: Emulator for Google Cloud Storage API
+fakesteak: ASCII Matrix-like steak demo
+faketty: Wrapper to exec a command in a pty, even if redirecting the output
+fastga: Pairwise whole genome aligner
+fastk: K-mer counter for high-fidelity shotgun datasets
+fastmcp: Fast, Pythonic way to build MCP servers and clients
+fastrace: Dependency-free traceroute implementation in pure C
+fedify: CLI toolchain for Fedify
+fennel-ls: Language Server for Fennel
+fernflower: Advanced decompiler for Java bytecode
+ferron: Fast, memory-safe web server written in Rust
+ffmate: FFmpeg automation layer
+ffmpeg@7: Play, record, convert, and stream audio and video
+filebrowser: Web File Browser
+filen-cli: Interface with Filen, an end-to-end encrypted cloud storage service
+fjira: Fuzzy-find cli jira interface
+flexget: Multipurpose automation tool for content
+flip-link: Adds zero-cost stack overflow protection to your embedded programs
+flye: De novo assembler for single molecule sequencing reads using repeat graphs
+fnox: Fort Knox for your secrets - flexible secret management tool
+forgejo: Self-hosted lightweight software forge
+forgejo-cli: CLI tool for interacting with Forgejo
+foxglove-cli: Foxglove command-line tool
+framework-tool-tui: TUI for controlling and monitoring Framework Computers hardware
+ftxui: C++ Functional Terminal User Interface
+fx-upscale: Metal-powered video upscaling
+gama: Manage your GitHub Actions from Terminal with great UI
+gbox: Provides environments for AI Agents to operate computer and mobile devices
+gcc@14: GNU compiler collection
+gcl: GNU Common Lisp
+gcli: Portable Git(hub|lab|tea)/Forgejo/Bugzilla CLI tool
+gdown: Google Drive Public File Downloader when Curl/Wget Fails
+geesefs: FUSE FS implementation over S3
+gemini-cli: Interact with Google Gemini AI models from the command-line
+gerust: Project generator for Rust backend projects
+getparty: Multi-part HTTP download manager
+ggc: Modern Git CLI
+ghalint: GitHub Actions linter
+ghidra: Multi-platform software reverse engineering framework
+girara: GTK+3-based user interface library
+git-xet: Git LFS plugin that uploads and downloads using the Xet protocol
+gitea-mcp-server: Interactive with Gitea instances with MCP
+github-mcp-server: GitHub Model Context Protocol server for AI tools
+gitingest: Turn any Git repository into a prompt-friendly text ingest for LLMs
+gitlab-ci-linter: Command-line tool to lint GitLab CI YAML files
+gitlab-release-cli: Toolset to create, retrieve and update releases on GitLab
+gitlogue: Cinematic Git commit replay tool
+gitmux: Git status in tmux status bar
+gitnr: Create `.gitignore` using templates from TopTal, GitHub or your own collection
+glom: Declarative object transformer and formatter, for conglomerating nested data
+gnome-papers: Document viewer for PDF and other document formats aimed at the GNOME desktop
+go-librespot: Spotify client
+go-passbolt-cli: CLI for passbolt
+go-rice: Easily embed resources like HTML, JS, CSS, images, and templates in Go
+go@1.24: Open source programming language to build simple/reliable/efficient software
+gocheat: TUI Cheatsheet for keybindings, hotkeys and more
+goclone: Website Cloner
+gonzo: Log analysis TUI
+goodls: CLI tool to download shared files and folders from Google Drive
+goshs: Simple, yet feature-rich web server written in Go
+gotun: Lightweight HTTP proxy over SSH
+gpgmepp: C++ bindings for gpgme
+gpgmepy: Python bindings for gpgme
+gphotos-uploader-cli: Command-line tool to mass upload media folders to Google Photos
+gradle@8: Open-source build automation tool based on the Groovy and Kotlin DSL
+granted: Easiest way to access your cloud
+gravitino: High-performance, geo-distributed, and federated metadata lake
+gruyere: TUI program for viewing and killing processes listening on ports
+gtrash: Featureful Trash CLI manager: alternative to rm and trash-cli
+guichan: Small, efficient C++ GUI library designed for games
+gwctl: CLI for managing and inspecting Gateway API resources in Kubernetes clusters
+hack-browser-data: Command-line tool for decrypting and exporting browser data
+hapless: Run and manage background processes
+haraka: Fast, highly extensible, and event driven SMTP server
+harbor-cli: CLI for Harbor container registry
+harsh: Habit tracking for geeks
+hdr10plus_tool: CLI utility to work with HDR10+ in HEVC files
+hellwal: Fast, extensible color palette generator
+helm@3: Kubernetes package manager
+hexd: Colourful, human-friendly hexdump tool
+hexhog: Hex viewer/editor
+hf-mcp-server: MCP Server for Hugging Face
+hierarchy-builder: High level commands to declare a hierarchy based on packed classes
+hjson: Convert JSON to HJSON and vice versa
+html-to-markdown: Transforms HTML (even entire websites) into clean, readable Markdown
+htmlhint: Static code analysis tool you need for your HTML
+httptap: HTTP request visualizer with phase-by-phase timing breakdown
+hub-tool: Docker Hub experimental CLI tool
+hyper-mcp: MCP server that extends its capabilities through WebAssembly plugins
+icu4c@78: C/C++ and Java libraries for Unicode and globalization
+ifopt: Light-weight C++ Interface to Nonlinear Programming Solvers
+igrep: Interactive grep
+imagineer: Image processing and conversion from the terminal
+infat: Tool to set default openers for file formats and url schemes on macOS
+influxdb@2: Time series, events, and metrics database
+install-nothing: Simulates installing things but doesn't actually install anything
+intelli-shell: Like IntelliSense, but for shells
+intermodal: Command-line utility for BitTorrent torrent file creation, verification, etc.
+is-fast: Check the internet as fast as possible
+jiratui: Textual User Interface for interacting with Atlassian Jira from your shell
+jjui: TUI for interacting with the Jujutsu version control system
+joyce: Emulates the Amstrad PCW on Unix, Windows and macOS
+jq-lsp: Jq language server
+jqp: TUI playground to experiment and play with jq
+jwt-hack: JSON Web Token Hack Toolkit
+kafkactl-aws-plugin: AWS Plugin for kafkactl
+kafkactl-azure-plugin: Azure Plugin for kafkactl
+kagent: Kubernetes native framework for building AI agents
+kanata-tray: System tray for kanata keyboard remapper
+kargo: Multi-Stage GitOps Continuous Promotion
+kbt: Keyboard tester in terminal
+kekkai: File integrity monitoring tool
+kibi: Text editor in ≤1024 lines of code, written in Rust
+kimi-cli: CLI agent for MoonshotAI Kimi platform
+kingfisher: MongoDB's blazingly fast secret scanning and validation tool
+kissat: Bare metal SAT solver
+kokkos: C++ Performance Portability Ecosystem for parallel execution and abstraction
+komac: Community Manifest Creator for Windows Package Manager (WinGet)
+kraken2: Taxonomic sequence classification system
+krane: Kubernetes deploy tool with rollout verification
+ktea: Kafka TUI client
+ktop: Top-like tool for your Kubernetes clusters
+kubectl-ai: AI powered Kubernetes Assistant
+kubernetes-cli@1.32: Kubernetes command-line interface
+kubernetes-cli@1.33: Kubernetes command-line interface
+kubernetes-mcp-server: MCP server for Kubernetes
+lakekeeper: Apache Iceberg REST Catalog
+lazycontainer: Terminal UI for Apple Containers
+lazyssh: Terminal-based SSH manager
+ldcli: CLI for managing LaunchDarkly feature flags
+libaegis: Portable C implementations of the AEGIS family of encryption algorithms
+libayatana-appindicator: Ayatana Application Indicators Shared Library
+libayatana-indicator: Ayatana Indicators Shared Library
+libbsc: High performance block-sorting data compression library
+libcaption: Free open-source CEA608 / CEA708 closed-caption encoder/decoder
+libcpucycles: Microlibrary for counting CPU cycles
+libdatrie: Double-Array Trie Library
+libdbusmenu: GLib and Gtk Implementation of the DBusMenu protocol
+libdecor: Client-side decorations library for Wayland client
+libjodycode: Shared code used by several utilities written by Jody Bruchon
+libngtcp2: IETF QUIC protocol implementation
+libpg_query: C library for accessing the PostgreSQL parser outside of the server environment
+libpq@16: Postgres C API library
+libpq@17: Postgres C API library
+libptytty: Library for OS-independent pseudo-TTY management
+libselinux: SELinux library and simple utilities
+libsepol: SELinux binary policy manipulation library
+libudfread: Universal Disk Format reader
+lima-additional-guestagents: Additional guest agents for Lima
+limine: Modern, advanced, portable, multiprotocol bootloader and boot manager
+litehtml: Fast and lightweight HTML/CSS rendering engine
+lld@19: LLVM Project Linker
+lld@20: LLVM Project Linker
+llvm@19: Next-gen compiler infrastructure
+llvm@20: Next-gen compiler infrastructure
+lnk: Git-native dotfiles management that doesn't suck
+lolcrab: Make your console colorful, with OpenSimplex noise
+lsr: Ls but with io_uring
+lstr: Fast, minimalist directory tree viewer
+lue-reader: Terminal eBook reader with text-to-speech and multi-format support
+lunarml: Standard ML compiler that produces Lua/JavaScript
+lunasvg: SVG rendering and manipulation library in C++
+lutgen: Blazingly fast interpolated LUT generator and applicator for color palettes
+lzsa: Lossless packer that is optimized for fast decompression on 8-bit micros
+mac-cleanup-py: Python cleanup script for macOS
+magika: Fast and accurate AI powered file content types detection
+maigret: Collect a dossier on a person by username from thousands of sites
+mail-deduplicate: CLI to deduplicate mails from mail boxes
+mani: CLI tool to help you manage repositories
+manifold: Geometry library for topological robustness
+mariadb@11.8: Drop-in replacement for MySQL
+mark: Sync your markdown files with Confluence pages
+marmite: Static Site Generator for Blogs using Markdown
+matcha: Daily digest generator for your RSS feeds
+mbedtls@3: Cryptographic & SSL/TLS library
+mcat: Terminal image, video, directory, and Markdown viewer
+mcp-atlassian: MCP server for Atlassian tools (Confluence, Jira)
+mcp-get: CLI for discovering, installing, and managing MCP servers
+mcp-google-sheets: MCP server integrates with your Google Drive and Google Sheets
+mcp-grafana: MCP server for Grafana
+mcp-inspector: Visual testing tool for MCP servers
+mcp-proxy: Bridge between Streamable HTTP and stdio MCP transports
+mcp-publisher: Publisher CLI tool for the Official Model Context Protocol (MCP) Registry
+mcp-server-chart: MCP with 25+ @antvis charts for visualization, generation, and analysis
+mcp-server-kubernetes: MCP Server for kubernetes management commands
+mcphost: CLI host for LLMs to interact with tools via MCP
+mcpm: Open source, community-driven MCP server and client manager
+mcptools: CLI for interacting with MCP servers using both stdio and HTTP transport
+mdfried: Terminal markdown viewer
+mdserve: Fast markdown preview server with live reload and theme support
+media-control: Control and observe media playback from the command-line
+melt: Backup and restore Ed25519 SSH keys with seed words
+memtier_benchmark: Redis and Memcache traffic generation and benchmarking tool
+mender-artifact: CLI tool for managing Mender artifact files
+mender-cli: General-purpose CLI tool for the Mender backend
+mermaid-cli: CLI for Mermaid library
+min-lang: Small but practical concatenative programming language and shell
+miniflux: Minimalist and opinionated feed reader
+minify: Minifier for HTML, CSS, JS, JSON, SVG, and XML
+miniprot: Align proteins to genomes with splicing and frameshift
+mitama-cpp-result: Provides `result<T, E>` and `maybe<T>` and monadic functions for them
+mk: Wrapper for auto-detecting build and test commands in a repository
+mklittlefs: Creates LittleFS images for ESP8266, ESP32, Pico RP2040, and RP2350
+mlc: Check for broken links in markup files
+mlx-lm: Run LLMs with MLX
+mob: Tool for smooth Git handover in mob programming sessions
+mongo-c-driver@1: C driver for MongoDB
+moodle-dl: Downloads course content fast from Moodle (e.g., lecture PDFs)
+moribito: TUI for LDAP Viewing/Queries
+mpremote: Tool for interacting remotely with MicroPython devices
+msedit: Simple text editor with clickable interface
+msolve: Library for Polynomial System Solving through Algebraic Methods
+multi-gitter: Update multiple repositories in with one command
+mysql-to-sqlite3: Transfer data from MySQL to SQLite
+n8n-mcp: MCP for Claude Desktop, Claude Code, Windsurf, Cursor to build n8n workflows
+nanoarrow: Helpers for Arrow C Data & Arrow C Stream interfaces
+nanobot: Build MCP Agents
+nelm: Kubernetes deployment tool that manages and deploys Helm Charts
+nerdlog: TUI log viewer with timeline histogram and no central server
+nessie: Transactional Catalog for Data Lakes with Git-like semantics
+netscanner: Network scanner with features like WiFi scanning, packetdump and more
+newsraft: Terminal feed reader
+nextflow: Reproducible scientific workflows
+ni: Selects the right Node package manager based on lockfiles
+nifi-toolkit: Command-line utilities to setup and support NiFi
+nip4: Image processing spreadsheet
+nixfmt: Command-line tool to format Nix language code
+node@24: Open-source, cross-platform JavaScript runtime environment
+notion-mcp-server: MCP Server for Notion
+npq: Audit npm packages before you install them
+nuxi: Nuxt CLI (nuxi) for creating and managing Nuxt projects
+nx: Smart, Fast and Extensible Build System
+nyan: Colorizing `cat` command with syntax highlighting
+oasis: CLI for interacting with the Oasis Protocol network
+oatpp: Light and powerful C++ web framework
+omekasy: Converts alphanumeric input to various Unicode styles
+omnara: Talk to Your AI Agents from Anywhere
+onigmo: Regular expressions library forked from Oniguruma
+openapi: CLI tools for working with OpenAPI, Arazzo and Overlay specifications
+openapv: Open Advanced Professional Video Codec
+openblas64: Optimized BLAS library
+opencode: AI coding agent, built for the terminal
+openlist: New AList fork addressing anti-trust issues
+openssl@3.5: Cryptography and SSL/TLS Toolkit
+opkssh: Enables SSH to be used with OpenID Connect
+osx-trash: Allows trashing of files instead of tempting fate with rm
+oterm: Terminal client for Ollama
+otterdog: Manage GitHub organizations at scale using an infrastructure as code approach
+ovsx: Command-line interface for Eclipse Open VSX
+oxen: Data VCS for structured and unstructured machine learning datasets
+pangene: Construct pangenome gene graphs
+parqeye: Peek inside Parquet files right from your terminal
+pdtm: ProjectDiscovery's Open Source Tool Manager
+pelican: Static site generator that supports Markdown and reST syntax
+perbase: Fast and correct perbase BAM/CRAM analysis
+permify: Open-source authorization service & policy engine based on Google Zanzibar
+pg-schema-diff: Diff Postgres schemas and generating SQL migrations
+pgslice: Postgres partitioning as easy as pie
+pgstream: PostgreSQL replication with DDL changes
+php-intl: PHP internationalization extension
+php@8.4: General-purpose scripting language
+pieces-cli: Command-line tool for Pieces.app
+pipewire: Server and user space API to deal with multimedia pipelines
+pixd: Visual binary data using a colour palette
+plakar: Create backups with compression, encryption and deduplication
+playwright-mcp: MCP server for Playwright
+plutobook: Paged HTML Rendering Library
+plutoprint: Generate PDFs and Images from HTML
+plutovg: Tiny 2D vector graphics library in C
+podcast-archiver: Archive all episodes from your favorite podcasts
+polaris: Validation of best practices in your Kubernetes clusters
+policy-engine: Unified Policy Engine
+polypolish: Short-read polishing tool for long-read assemblies
+portable-libffi: Portable Foreign Function Interface library
+portable-libxcrypt: Extended crypt library for descrypt, md5crypt, bcrypt, and others
+portable-libyaml: YAML Parser
+portable-openssl: Cryptography and SSL/TLS Toolkit
+portable-ruby: Powerful, clean, object-oriented scripting language
+portable-zlib: General-purpose lossless data-compression library
+postgres-language-server: Language Server for Postgres
+postgresql@18: Object-relational database system
+precice: Coupling library for partitioned multi-physics simulations
+preevy: Quickly deploy preview environments to the cloud
+privatebin-cli: CLI for creating and managing PrivateBin pastes
+prog8: Compiled programming language targeting the 8-bit 6502 CPU family
+protoc-gen-doc: Documentation generator plugin for Google Protocol Buffers
+protozero: Minimalist protocol buffer decoder and encoder in C++
+pulp-cli: Command-line interface for Pulp 3
+pulumictl: Swiss army knife for Pulumi development
+py7zr: 7-zip in Python
+pyp: Easily run Python at the shell! Magical, but never mysterious
+pyrefly: Fast type checker and IDE for Python
+pyscn: Intelligent Python Code Quality Analyzer
+python-gdbm@3.14: Python interface to gdbm
+python-tk@3.14: Python interface to Tcl/Tk
+python@3.14: Interpreted, interactive, object-oriented programming language
+pytr: Use TradeRepublic in terminal and mass download all documents
+q: Tiny command-line DNS client with support for UDP, TCP, DoT, DoH, DoQ and ODoH
+qcoro6: C++ Coroutines for Qt
+qman: Modern man page viewer
+qnm: CLI for querying the node_modules directory
+qqqa: Fast, stateless LLM for your shell: qq answers; qa runs commands
+qrkey: Generate and recover QR codes from files for offline private key backup
+qt3d: Provides functionality for near-realtime simulation systems
+qt5compat: Qt 5 Core APIs that were removed in Qt 6
+qtbase: Cross-platform application and UI framework
+qtcharts: UI Components for displaying visually pleasing charts
+qtconnectivity: Provides access to Bluetooth hardware
+qtdatavis3d: Provides functionality for 3D visualization
+qtdeclarative: QML, Qt Quick and several related modules
+qtgraphs: Provides functionality for 2D and 3D graphs
+qtgrpc: Provides support for communicating with gRPC services
+qthttpserver: Framework for embedding an HTTP server into a Qt application
+qtimageformats: Plugins for additional image formats: TIFF, MNG, TGA, WBMP
+qtlanguageserver: Implementation of the Language Server Protocol and JSON-RPC
+qtlocation: Provides C++ interfaces to retrieve location and navigational information
+qtlottie: Display graphics and animations exported by the Bodymovin plugin
+qtmultimedia: Provides APIs for playing back and recording audiovisual content
+qtnetworkauth: Provides support for OAuth-based authorization to online services
+qtpositioning: Provides access to position, satellite info and area monitoring classes
+qtquick3d: Provides a high-level API for creating 3D content or UIs based on Qt Quick
+qtquick3dphysics: High-level QML module adding physical simulation capabilities to Qt Quick 3D
+qtquickeffectmaker: Tool to create custom Qt Quick shader effects
+qtquicktimeline: Enables keyframe-based animations and parameterization
+qtremoteobjects: Provides APIs for inter-process communication
+qtscxml: Provides functionality to create state machines from SCXML files
+qtsensors: Provides access to sensors via QML and C++ interfaces
+qtserialbus: Provides access to serial industrial bus interfaces
+qtserialport: Provides classes to interact with hardware and virtual serial ports
+qtshadertools: Provides tools for the cross-platform Qt shader pipeline
+qtspeech: Enables access to text-to-speech engines
+qtsvg: Classes for displaying the contents of SVG files
+qttools: Facilitate the design, development, testing and deployment of applications
+qttranslations: Qt translation catalogs
+qtvirtualkeyboard: Provides an input framework and reference keyboard frontend
+qtwayland: Wayland platform plugin and QtWaylandCompositor API
+qtwebchannel: Bridges the gap between Qt applications and HTML/JavaScript
+qtwebengine: Provides functionality for rendering regions of dynamic web content
+qtwebsockets: Provides WebSocket communication compliant with RFC 6455
+qtwebview: Displays web content in a QML application
+quadcastrgb: Set RGB lights on HyperX QuadCast S and Duocast microphones
+quint: Core tool for the Quint specification language
+qwen-code: AI-powered command-line workflow tool for developers
+radvd: IPv6 Router Advertisement Daemon
+rails-mcp-server: MCP server for Rails applications
+rasusa: Randomly subsample sequencing reads or alignments
+readerwriterqueue: Fast single-producer, single-consumer lock-free queue for C++
+readsb: ADS-B decoder swiss knife
+reckoner: Declaratively install and manage multiple Helm chart releases
+recur: Retry a command with exponential backoff and jitter
+reddix: Reddit, refined for the terminal
+redis@8.2: Persistent key-value database, with built-in net interface
+resterm: Terminal client for .http/.rest files with HTTP, GraphQL, and gRPC support
+rggen: Code generation tool for control and status registers
+rmpc: Terminal based Media Player Client with album art support
+rna-star: RNA-seq aligner
+rnp: High performance C++ OpenPGP library used by Mozilla Thunderbird
+rocq-elpi: Elpi extension language for Rocq
+rofi: Window switcher, application launcher and dmenu replacement
+rolesanywhere-credential-helper: Manages getting temporary security credentials from IAM Roles Anywhere
+ropebwt3: BWT construction and search
+rqbit: Fast command-line bittorrent client and server
+rsql: CLI for relational databases and common data file formats
+rulesync: Unified AI rules management CLI tool
+rumdl: Markdown Linter and Formatter written in Rust
+rv: Ruby version manager
+s6-rc: Process supervision suite
+sacad: Automatic cover art downloader
+salesforce-mcp: MCP Server for interacting with Salesforce instances
+samply: CLI sampling profiler
+sarif-tools: Set of command-line tools and Python library for working with SARIF files
+scdl: Command-line tool to download music from SoundCloud
+secretspec: Declarative secrets management tool
+seqan3: Modern C++ library for sequence analysis
+sequoia-chameleon-gnupg: Reimplementatilon of gpg and gpgv using Sequoia
+sexpect: Expect for shells
+shamrock: Astrophysical hydrodynamics using SYCL
+sherif: Opinionated, zero-config linter for JavaScript monorepos
+shimmy: Small local inference server with OpenAI-compatible GGUF endpoints
+shortest: AI-powered natural language end-to-end testing framework
+skalibs: Skarnet's library collection
+skani: Fast, robust ANI and aligned fraction for (metagenomic) genomes and contigs
+slack-mcp-server: Powerful MCP Slack Server with multiple transports and smart history fetch logic
+smenu: Powerful and versatile CLI selection tool for interactive or scripting use
+snooze: Run a command at a particular time
+somo: Human-friendly alternative to netstat for socket and port monitoring
+sox_ng: Sound eXchange NG
+specify: Toolkit to help you get started with Spec-Driven Development
+spice-server: Implements the server side of the SPICE protocol
+spiffe-helper: Tool that can be used to retrieve and manage SVIDs on behalf of a workload
+sprocket: Bioinformatics workflow engine built on the Workflow Description Language (WDL)
+sqlite-rsync: SQLite remote copy tool
+sqlite3-to-mysql: Transfer data from SQLite to MySQL
+sqruff: Fast SQL formatter/linter
+standardebooks: Tools for producing ebook files
+stormy: Minimal, customizable and neofetch-like weather CLI based on rainy
+strands-agents-sops: Standard Operating Procedures for AI agents using natural language
+stringtie: Transcript assembly and quantification for RNA-Seq
+stu: TUI explorer application for Amazon S3 (AWS S3)
+style-dictionary: Build system for creating cross-platform styles
+supabase: Open source Firebase alternative
+supabase-mcp-server: MCP Server for Supabase
+swag: Automatically generate RESTful API documentation with Swagger 2.0 for Go
+swift-section: CLI tool for parsing mach-o files to obtain Swift information
+swiftly: Swift toolchain installer and manager
+sylph: Ultrafast taxonomic profiling and genome querying for metagenomic samples
+tabixpp: C++ wrapper to tabix indexer
+taskline: Tasks, boards & notes for the command-line habitat
+taze: Modern cli tool that keeps your deps fresh
+tdd-guard: Automated TDD enforcement for Claude Code
+tdom: XML/DOM/XPath/XSLT/HTML/JSON implementation for Tcl
+teamtype: Peer-to-peer, editor-agnostic collaborative editing of local text files
+technitium-dns: Self host a DNS server for privacy & security
+technitium-library: Library for technitium .net based applications
+termsvg: Record, share and export your terminal as a animated SVG image
+terraform-mcp-server: MCP server for Terraform
+terraform-module-versions: CLI that checks Terraform code for module updates
+terratag: CLI to automate tagging for AWS, Azure & GCP resources in Terraform
+teslamate: Self-hosted data logger for your Tesla
+tfcmt: Notify the execution result of terraform command
+tfmcp: Terraform Model Context Protocol (MCP) Tool
+tfmv: CLI to rename Terraform resources and generate moved blocks
+tfplugingen-openapi: OpenAPI to Terraform Provider Code Generation Specification
+tfsort: CLI to sort Terraform variables and outputs
+tfstate-lookup: Lookup resource attributes in tfstate
+thorvg: Lightweight portable library used for drawing vector-based scenes and animations
+tiledb: Universal storage engine
+timoni: Package manager for Kubernetes, powered by CUE and inspired by Helm
+tiny-remapper: Tiny, efficient tool for remapping JAR files using "Tiny"-format mappings
+tkrzw: Set of implementations of DBM
+tldx: Domain Availability Research Tool
+tmex: Minimalist tmux layout manager
+tmuxai: AI-powered, non-intrusive terminal assistant
+tofu-ls: OpenTofu Language Server
+toktop: LLM usage monitor in terminal
+tombi: TOML formatter, linter and language server
+toml-bombadil: Dotfile manager with templating
+torrra: Find and download torrents without leaving your CLI
+tracetest: Build integration and end-to-end tests
+tree-sitter-cli: Parser generator tool
+treemd: TUI and CLI dual pane markdown viewer
+trimal: Automated alignment trimming in large-scale phylogenetic analyses
+ts_query_ls: LSP implementation for Tree-sitter's query files
+tscriptify: Golang struct to TypeScript class/interface converter
+tsnet-serve: Expose HTTP applications to a Tailscale Tailnet network
+tsui: TUI for configuring and monitoring Tailscale
+tuios: Terminal UI OS (Terminal Multiplexer)
+tun2proxy: Tunnel (TUN) interface for SOCKS and HTTP proxies
+tweakcc: Customize your Claude Code themes, thinking verbs, and more
+twitch-cli: CLI to make developing on Twitch easier
+two-ms: Detect secrets in files and communication platforms
+typtea: Minimal terminal-based typing speed tester
+uhubctl: USB hub per-port power control
+undercutf1: F1 Live Timing TUI for all F1 sessions with variable delay to sync to your TV
+unitycatalog: Open, Multi-modal Catalog for Data & AI
+unoserver: Server for file conversions with Libre Office
+urx: Extracts URLs from OSINT Archives for Security Insights
+uvwasi: WASI syscall API built atop libuv
+varlock: Add declarative schema to .env files using @env-spec decorator comments
+vgo: Project scaffolder for Go, written in Go
+vibe-log-cli: CLI tool for analyzing Claude Code sessions
+vibecheck: AI-powered git commit assistant written in Go
+videoalchemy: Toolkit expanding video processing capabilities
+vineflower: Java decompiler
+volcano-cli: CLI for Volcano, Cloud Native Batch System
+vsd: Download video streams over HTTP, DASH (.mpd), and HLS (.m3u8)
+vtcode: CLI Semantic Coding Agent
+wait4x: Wait for a port or a service to enter the requested state
+wal-g: Archival restoration tool for databases
+wassette: Security-oriented runtime that runs WebAssembly Components via MCP
+wayback: Archiving tool integrated with various archival services
+webdav: Simple and standalone WebDAV server
+wgpu-native: Native WebGPU implementation based on wgpu-core
+wishlist: Single entrypoint for multiple SSH endpoints
+wrkflw: Validate and execute GitHub Actions workflows locally
+wuppiefuzz: Coverage-guided REST API fuzzer developed on top of LibAFL
+wxwidgets@3.2: Cross-platform C++ GUI toolkit
+x-cmd: Bootstrap 1000+ command-line tools in seconds
+xan: CSV CLI magician written in Rust
+xcp: Fast & lightweight command-line tool for managing Xcode projects, built in Swift
+xleak: Terminal Excel viewer with an interactive TUI
+xml2rfc: Tool to convert XML RFC7749 to the original ASCII or the new HTML look-and-feel
+xtl: X template library
+yaml2json: Command-line tool convert from YAML to JSON
+yamlresume: Resumes as code in YAML
+yeet: Packaging tool that lets you declare build instructions in JavaScript
+yek: Fast Rust based tool to serialize text-based files for LLM consumption
+yuque-dl: Knowledge base downloader for Yuque
+zig@0.14: Programming language designed for robustness, optimality, and clarity
+zsh-history-enquirer: Zsh plugin that enhances history search interaction
+zsv: Tabular data swiss-army knife CLI
+zuban: Python language server and type checker, written in Rust
+
+You have 4 outdated formulae installed.
+
+==> Fetching downloads for: rbenv and ruby-build
+✔︎ Bottle Manifest rbenv (1.3.2)                    [Downloaded    2.9KB/  2.9KB]
+✔︎ Bottle Manifest ruby-build (20251203)            [Downloaded    3.9KB/  3.9KB]
+✔︎ Bottle Manifest ruby-build (20251203)            [Downloaded    3.9KB/  3.9KB]
+✔︎ Bottle Manifest m4 (1.4.20)                      [Downloaded   11.7KB/ 11.7KB]
+✔︎ Bottle Manifest autoconf (2.72)                  [Downloaded   19.7KB/ 19.7KB]
+✔︎ Bottle Manifest libyaml (0.2.5)                  [Downloaded   14.5KB/ 14.5KB]
+✔︎ Bottle m4 (1.4.20)                               [Downloaded  279.3KB/279.3KB]
+✔︎ Bottle Manifest ca-certificates (2025-12-02)     [Downloaded    2.0KB/  2.0KB]
+✔︎ Bottle Manifest openssl@3 (3.6.0)                [Downloaded   11.8KB/ 11.8KB]
+✔︎ Bottle Manifest pkgconf (2.5.1)                  [Downloaded   12.2KB/ 12.2KB]
+✔︎ Bottle Manifest readline (8.3.1)                 [Downloaded   12.3KB/ 12.3KB]
+✔︎ Bottle ca-certificates (2025-12-02)              [Downloaded  131.8KB/131.8KB]
+✔︎ Bottle pkgconf (2.5.1)                           [Downloaded  121.9KB/121.9KB]
+✔︎ Bottle readline (8.3.1)                          [Downloaded  758.2KB/758.2KB]
+✔︎ Bottle libyaml (0.2.5)                           [Downloaded  110.8KB/110.8KB]
+✔︎ Bottle autoconf (2.72)                           [Downloaded    1.1MB/  1.1MB]
+✔︎ Bottle rbenv (1.3.2)                             [Downloaded   20.8KB/ 20.8KB]
+✔︎ Bottle ruby-build (20251203)                     [Downloaded   75.8KB/ 75.8KB]
+✔︎ Bottle openssl@3 (3.6.0)                         [Downloaded   10.9MB/ 10.9MB]
+==> Installing dependencies for rbenv: m4, autoconf, libyaml, ca-certificates, openssl@3, pkgconf, readline and ruby-build
+==> Installing rbenv dependency: m4
+==> Pouring m4--1.4.20.arm64_sequoia.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/m4/1.4.20: 14 files, 802.7KB
+==> Installing rbenv dependency: autoconf
+==> Pouring autoconf--2.72.arm64_sequoia.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/autoconf/2.72: 72 files, 3.8MB
+==> Installing rbenv dependency: libyaml
+==> Pouring libyaml--0.2.5.arm64_sequoia.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libyaml/0.2.5: 11 files, 363KB
+==> Installing rbenv dependency: ca-certificates
+==> Pouring ca-certificates--2025-12-02.all.bottle.tar.gz
+==> Regenerating CA certificate bundle from keychain, this may take a while...
+🍺  /opt/homebrew/Cellar/ca-certificates/2025-12-02: 4 files, 236.4KB
+==> Installing rbenv dependency: openssl@3
+==> Pouring openssl@3--3.6.0.arm64_sequoia.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/openssl@3/3.6.0: 7,609 files, 37.7MB
+==> Installing rbenv dependency: pkgconf
+==> Pouring pkgconf--2.5.1.arm64_sequoia.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/pkgconf/2.5.1: 28 files, 533.5KB
+==> Installing rbenv dependency: readline
+==> Pouring readline--8.3.1.arm64_sequoia.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/readline/8.3.1: 56 files, 2.7MB
+==> Installing rbenv dependency: ruby-build
+==> Pouring ruby-build--20251203.all.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/ruby-build/20251203: 668 files, 380.9KB
+==> Installing rbenv
+==> Pouring rbenv--1.3.2.all.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/rbenv/1.3.2: 36 files, 76.6KB
+==> Running `brew cleanup rbenv`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Running `brew cleanup ruby-build`...
+==> `brew cleanup` has not been run in the last 30 days, running now...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/gettext_bottle_manifest--0.24... (14.9KB)
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/gettext--0.24... (8.5MB)
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/git_bottle_manifest--2.49.0... (20.1KB)
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/git--2.49.0... (20.9MB)
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/libunistring_bottle_manifest--1.3... (8.3KB)
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/libunistring--1.3... (1.8MB)
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/pcre2_bottle_manifest--10.45... (10.5KB)
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/pcre2--10.45... (2.3MB)
+Removing: /Users/yokoyamahadzuki/Library/Caches/Homebrew/portable-ruby-3.3.7.arm64_big_sur.bottle.tar.gz... (11.7MB)
+Removing: /opt/homebrew/var/homebrew/tmp/.cellar/libyaml... (10 files, 360.8KB)
+Removing: /opt/homebrew/var/homebrew/tmp/.cellar/readline... (55 files, 2.7MB)
+Removing: /opt/homebrew/var/homebrew/tmp/.cellar/ruby-build... (667 files, 370.1KB)
+Removing: /opt/homebrew/var/homebrew/tmp/.cellar/pkgconf... (27 files, 531.2KB)
+Removing: /opt/homebrew/var/homebrew/tmp/.cellar/openssl@3... (7,608 files, 37.7MB)
+Removing: /opt/homebrew/var/homebrew/tmp/.cellar/ca-certificates... (3 files, 234KB)
+Removing: /opt/homebrew/var/homebrew/tmp/.cellar/autoconf... (71 files, 3.8MB)
+Removing: /opt/homebrew/var/homebrew/tmp/.cellar/m4... (13 files, 800.4KB)
+==> Caveats
+zsh completions have been installed to:
+  /opt/homebrew/share/zsh/site-functions
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % rbenv install 3.3.0
+ruby-build: using openssl@3 from homebrew
+==> Downloading ruby-3.3.0.tar.gz...
+-> curl -q -fL -o ruby-3.3.0.tar.gz https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.0.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 21.0M  100 21.0M    0     0  9905k      0  0:00:02  0:00:02 --:--:-- 9907k
+==> Installing ruby-3.3.0...
+ruby-build: using libyaml from homebrew
+-> ./configure "--prefix=$HOME/.rbenv/versions/3.3.0" --with-openssl-dir=/opt/homebrew/opt/openssl@3 --enable-shared --with-libyaml-dir=/opt/homebrew/opt/libyaml --with-ext=openssl,psych,+
+-> make -j 10
+-> make install
+==> Installed ruby-3.3.0 to /Users/yokoyamahadzuki/.rbenv/versions/3.3.0
+
+NOTE: to activate this Ruby version as the new default, run: rbenv global 3.3.0
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % rbenv global 3.3.0
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % rbenv rehash
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % ruby -v
+ruby 2.6.10p210 (2022-04-12 revision 67958) [universal.arm64e-darwin24]
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % rbenv global 3.3.0
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % rbenv rehash
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % ruby -v
+ruby 2.6.10p210 (2022-04-12 revision 67958) [universal.arm64e-darwin24]
+yokoyamahadzuki@yokoyamahadzukinoMacBook-Pro ~ % nano ~/.zshrc
+
+  UW PICO 5.09          File: /Users/yokoyamahadzuki/.zshrc           Modified  
+
+        ^R (F5)   Insert an external file at the current cursor position.
+        ^O (F3)   Output the current buffer to a file, saving it.
+        ^X (F2)   Exit pico, saving buffer.
+    
+    End of Help.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            [ Unknown Command: ^S ]                             
+                                       ^Y Prev Pg                             
+^X Exit Help                                                                  
