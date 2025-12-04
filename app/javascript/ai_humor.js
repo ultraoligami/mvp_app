@@ -1,30 +1,27 @@
 document.addEventListener("turbo:load", () => {
-    const button = document.getElementById("ai-humor-btn");
-    const contentField = document.getElementById("post_content");
+    const btn = document.getElementById("ai-humor-btn");
+    const textarea = document.getElementById("post_content");
   
-    if (!button || !contentField) return;
+    if (!btn || !textarea) return;
   
-    button.addEventListener("click", async () => {
-      button.disabled = true;
-      button.innerText = "生成中…";
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      btn.innerText = "変換中...";
   
-      const text = contentField.value;
-  
-      const res = await fetch("/ai/humor", {
+      const response = await fetch("/ai/humor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-CSRF-Token": document
-            .querySelector('meta[name="csrf-token"]')
-            .getAttribute("content")
+          "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
         },
-        body: JSON.stringify({ text: text })
+        body: JSON.stringify({ text: textarea.value })
       });
   
-      const data = await res.json();
-      contentField.value = data.humor_text;
+      const data = await response.json();
   
-      button.disabled = false;
-      button.innerText = "AIでユーモアに変換";
+      textarea.value = data.text;  // ← “text” に統一
+  
+      btn.disabled = false;
+      btn.innerText = "AIでユーモアに変換";
     });
   });
