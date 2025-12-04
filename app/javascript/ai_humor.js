@@ -1,32 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("ai-humor-btn");
-    if (!btn) return;
+document.addEventListener("turbo:load", () => {
+    const button = document.getElementById("ai-humor-btn");
+    const contentField = document.getElementById("post_content");
   
-    btn.addEventListener("click", async () => {
-      const contentField = document.getElementById("post_content");
-      const originalText = contentField.value;
+    if (!button || !contentField) return;
   
-      if (originalText.trim() === "") {
-        alert("文章を入力してください！");
-        return;
-      }
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      button.innerText = "生成中…";
   
-      btn.disabled = true;
-      btn.textContent = "AIが考え中…";
+      const text = contentField.value;
   
-      const response = await fetch("/ai/humor", {
+      const res = await fetch("/ai/humor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-CSRF-Token": document.querySelector("[name='csrf-token']").content
+          "X-CSRF-Token": document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content")
         },
-        body: JSON.stringify({ text: originalText })
+        body: JSON.stringify({ text: text })
       });
   
-      const data = await response.json();
-      contentField.value = data.humor;
+      const data = await res.json();
+      contentField.value = data.humor_text;
   
-      btn.disabled = false;
-      btn.textContent = "AIでユーモアに変換";
+      button.disabled = false;
+      button.innerText = "AIでユーモアに変換";
     });
   });

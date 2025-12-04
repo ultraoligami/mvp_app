@@ -14,23 +14,22 @@
   </div>
 
   <div class="mb-3">
-  <%= f.label :content, "内容", class: "form-label" %>
-  <%= f.text_area :content, rows: 6, class: "form-control", id: "post_content" %>
+    <%= f.label :content, "内容", class: "form-label" %>
+    <%= f.text_area :content, rows: 6, class: "form-control", id: "post_content" %>
+  </div>
 
-  <!-- ▼ AI ユーモア生成ボタン ▼ -->
-  <button type="button" class="btn btn-secondary mt-2" id="ai-humor-btn">
+  <!-- ▼ AIユーモア生成ボタン ▼ -->
+  <button type="button"
+          id="ai-humor-btn"
+          class="btn btn-outline-primary mb-3">
     AIでユーモアに変換
   </button>
-  <!-- ▲ AI ユーモア生成ボタン ▲ -->
-  </div>
-
-  
-
-  <div class="form-check mb-3">
-    <%= f.check_box :is_anonymous, class: "form-check-input" %>
-    <%= f.label :is_anonymous, "匿名で投稿する", class: "form-check-label" %>
-  </div>
+  <!-- ▲ AIユーモア生成ボタン ▲ -->
 
   <%= f.submit "投稿する", class: "btn btn-primary" %>
 
+  <div class="form-check mt-3">
+    <%= f.check_box :is_anonymous, class: "form-check-input" %>
+    <%= f.label :is_anonymous, "匿名で投稿する", class: "form-check-label" %>
+  </div>
 <% end %>
