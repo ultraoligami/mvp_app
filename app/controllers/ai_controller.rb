@@ -8,7 +8,7 @@ class AiController < ApplicationController
         parameters: {
           model: "gpt-4o-mini",
           messages: [
-            { role: "system", content: "入力文をユーモアのある文章に変換してください。過激・下品は禁止。" },
+            { role: "system", content: "入力文をユーモアのある文章に変換してください。過激・下品は禁止。一言ネタや軽いボケ程度にする。文章は長くしすぎない（1〜2行）。言いすぎない、ちょうど良い“あるあるユーモア”にする。Twitterでいいねが付きやすいネタ感のある内容にする。" },
             { role: "user", content: params[:text] }
           ]
         }
