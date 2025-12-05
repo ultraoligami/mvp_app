@@ -1,33 +1,50 @@
-<div class="container mt-5">
-  <div class="text-center">
-    <h1 class="mb-4">さぼログ</h1>
-    <p class="lead">「できなかったこと」を記録しよう</p>
+<div class="home-wrapper">
 
-    <!-- 未ログインでも投稿一覧へ行ける共通ボタン -->
-    <a href="<%= posts_path %>" class="btn btn-success btn-lg mt-3">
-      投稿をチェックする
-    </a>
+  <!-- ▼ ロゴ＋タヌキ（スプラッシュと同じレイアウト） ▼ -->
+  <div class="home-hero text-center">
+    <div class="hero-logo-wrapper">
+      <%= image_tag "sabolog_logo.png",
+            class: "hero-logo-image",
+            alt: "さぼログ ロゴ" %>
 
-    <% if user_signed_in? %>
-      <!-- ログインしている場合 -->
-      <a href="<%= mypage_posts_path %>" class="btn btn-success btn-lg mt-3 ms-2">
-        マイページへ（自分の投稿）
-      </a>
-
-      <%= link_to "ログアウト",
-          destroy_user_session_path,
-          method: :delete,
-          data: { turbo: false },
-          class: "btn btn-outline-danger btn-lg mt-3 ms-2" %>
-
-    <% else %>
-      <!-- ログインしていない場合 -->
-      <a href="<%= new_user_registration_path %>" class="btn btn-primary btn-lg mt-3 ms-2">
-        新規登録
-      </a>
-      <a href="<%= new_user_session_path %>" class="btn btn-outline-primary btn-lg mt-3 ms-2">
-        ログイン
-      </a>
-    <% end %>
+      <%= image_tag "pon_nutral.PNG",
+            class: "hero-mascot-image",
+            alt: "さぼログ キャラクター" %>
+    </div>
   </div>
+  <!-- ▲ ロゴ＋タヌキ ▲ -->
+
+  <!-- ▼ キャッチコピー ＆ ボタン群 ▼ -->
+  <div class="home-main text-center">
+    <p class="home-subtitle">「できなかったこと・失敗したこと」を記録しよう</p>
+
+    <div class="home-buttons mt-4">
+      <%= link_to "投稿をチェックする",
+                  posts_path,
+                  class: "btn btn-success btn-lg me-3" %>
+
+      <% if user_signed_in? %>
+        <%= link_to "マイページへ（自分の投稿）",
+                    mypage_posts_path,
+                    class: "btn btn-success btn-lg me-3" %>
+
+        <%= link_to "ログアウト",
+                    destroy_user_session_path,
+                    method: :delete,
+                    data: { turbo: false },
+                    class: "btn btn-outline-danger btn-lg" %>
+      <% else %>
+        <%= link_to "ログイン",
+                    new_user_session_path,
+                    class: "btn btn-outline-success btn-lg me-3" %>
+
+        <%= link_to "新規登録",
+                    new_user_registration_path,
+                    class: "btn btn-success btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+  <!-- ▲ キャッチコピー ＆ ボタン群 ▲ -->
+
+  <!-- 利用規約 / プライバシーポリシーは application.html.erb のフッターで出ているのでここでは書かない -->
 </div>

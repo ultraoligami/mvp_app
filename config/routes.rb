@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "privacy", to: "static_pages#privacy"
 
   post "ai/humor", to: "ai#humor"
-  
+
   devise_for :users
 
   # GETログアウトを許可（Turbo問題の回避）
@@ -24,7 +24,11 @@ Rails.application.routes.draw do
   end
 
 
-  root "pages#home"
+  # 最初にスプラッシュを表示
+  root "pages#splash"
+
+  # スプラッシュ後に遷移する本来のホーム
+  get "/home", to: "pages#home"
 
   # ★ここにマイページルートを追加
   resources :posts do
