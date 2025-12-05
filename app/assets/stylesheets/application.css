@@ -4,3 +4,27 @@
  */
 
 /* Bootstrap を CDN で使っているので import は不要 */
+
+/* 全ページ基本フォント */
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif !important;
+  }
+
+.nav-logo {
+    height: 80px;     /* 好みに応じて調整可能 */
+    width: auto;
+    display: block;
+  }
+
+  .navbar {
+    background-color: #f3eada !important;  /* 明るい木の色 */
+    border-bottom: 2px solid #d1b88f;      /* 木枠風ライン */
+  }
+  
+
+  .navbar-toggler {
+    border-color: #bfa174;
+  }
+  .navbar-toggler-icon {
+    filter: invert(38%) sepia(20%) saturate(500%) hue-rotate(10deg);
+  }

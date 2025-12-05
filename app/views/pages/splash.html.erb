@@ -1,0 +1,19 @@
+<div class="splash-wrapper">
+  <div class="hero-logo-wrapper">
+    <%= image_tag "sabolog_logo.png",
+          class: "hero-logo-image",
+          alt: "さぼログ ロゴ" %>
+
+    <%= image_tag "pon_nutral.PNG",
+          class: "hero-mascot-image",
+          alt: "さぼログ キャラクター" %>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+      window.location.href = "<%= home_path %>";  // ← いつものホームへのパス
+    }, 1500); // 1.5秒後に遷移
+  });
+<% end %>

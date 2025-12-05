@@ -1,0 +1,100 @@
+/* 全ページ共通で少しあたたかい背景に */
+body {
+    background-color: #f6f3ea;
+  }
+  
+  /* =========================
+     スプラッシュページ専用
+     ========================= */
+  
+  .splash-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;  /* ← Splash と Home を一致させるため中央揃え維持 */
+    justify-content: center;
+  }
+  
+  /* ▼▼ スプラッシュだけアニメーション ▼▼ */
+  .splash-wrapper .hero-logo-wrapper {
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(120px);
+    animation: splash-float-up 1.0s ease-out forwards;
+  }
+  
+  /* ロゴ画像（大きさ統一） */
+  .hero-logo-image {
+    width: 420px;
+    max-width: 80vw;
+    height: auto;
+  }
+  
+  /* タヌキ画像（ロゴ右下） */
+  .hero-mascot-image {
+    position: absolute;
+    width: 220px;
+    height: auto;
+    right: -120px;
+    bottom: -70px;
+  }
+  
+  /* アニメーション */
+  @keyframes splash-float-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* =========================
+     Homeページの見た目調整
+     ========================= */
+  
+  .home-wrapper {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   /* ← ★ 縦中央に変更 */
+    padding-top: 0;            /* ← ★ ズレの原因を削除 */
+  }
+  
+  /* ロゴ＋タヌキの位置をスプラッシュと完璧に一致 */
+  .home-hero {
+    position: relative;
+    margin-bottom: 100px;      /* ← ボタンとの間にしっかり余白 */
+  }
+  
+  /* ▼ Homeではアニメーション完全停止 ▼ */
+  .home-wrapper .hero-logo-wrapper {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+  
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* タイトル */
+  .home-title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-align: center;
+  }
+  
+  /* サブタイトル */
+  .home-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* ボタン */
+  .home-buttons .btn {
+    min-width: 220px;
+    margin-bottom: 12px;
+  }
