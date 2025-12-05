@@ -28,3 +28,72 @@ body {
   .navbar-toggler-icon {
     filter: invert(38%) sepia(20%) saturate(500%) hue-rotate(10deg);
   }
+
+  .custom-toggler .menu-icon {
+    width: 36px;
+    height: auto;
+  }
+
+/* =========================
+   📱 スマホ（〜576px）対応
+   ========================= */
+   @media (max-width: 576px) {
+
+    /* ▼ ロゴをスマホ向けに縮小 */
+    .hero-logo-image {
+      width: 70% !important;
+    }
+  
+    /* ▼ タヌキ画像の位置調整 */
+    .hero-mascot-image {
+      width: 140px !important;
+      right: -60px !important;
+      bottom: -40px !important;
+    }
+  
+    /* ▼ スマホでの上下の余白を増やす（窮屈防止） */
+    .home-wrapper {
+      padding-top: 40px !important;
+    }
+  
+    .home-hero {
+      margin-bottom: 40px !important;
+    }
+  
+    /* ▼ ボタンをスマホで全幅に */
+    .home-buttons .btn {
+      width: 90% !important;
+      min-width: auto;
+    }
+  
+    /* ▼ フォント少し大きめに調整 */
+    .home-title {
+      font-size: 1.8rem !important;
+    }
+  
+    .home-subtitle {
+      font-size: 1rem !important;
+    }
+  
+    /* ▼ ナビゲーション内の文字ゆとり */
+    .navbar-nav .nav-link {
+      padding: 12px 0 !important;
+      font-size: 1.1rem;
+    }
+  
+    /* ▼ ナビバーのロゴを小さめに */
+    .nav-logo {
+      height: 50px !important;
+    }
+  
+    /* ▼ ハンバーガーアイコンサイズ */
+    .menu-icon {
+      width: 30px !important;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .splash-wrapper .hero-logo-wrapper {
+      transform: translateY(10px);
+    }
+  }
