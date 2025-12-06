@@ -1,0 +1,23 @@
+<div class="d-flex gap-2">
+  <% stamps.each do |img, type| %>
+    <%= form_with model: Stamp.new,
+                  url: post_stamps_path(post),
+                  method: :post do |f| %>
+
+      <%= f.hidden_field :stamp_type, value: type %>
+
+      <button class="stamp-btn popover-btn">
+        <%= image_tag img, size: "28x28", alt: type %>
+      </button>
+
+    <% end %>
+  <% end %>
+</div>
+
+<style>
+.popover-btn {
+  border: none;
+  background: none;
+  padding: 0;
+}
+</style>

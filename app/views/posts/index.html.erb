@@ -1,6 +1,21 @@
 <div class="container mt-5">
   <h1 class="mb-4">投稿一覧</h1>
 
+  <%# ▼ stamp_type → 画像ファイルマッピング ▼ %>
+  <% stamp_images = {
+    "bikkuri" => "emoji_bikkuri.PNG",
+    "sad"     => "emoji_sad.PNG",
+    "good"    => "emoji_good.PNG",
+    "hatena"  => "emoji_hatena.PNG"
+  } %>
+
+  <% stamps = [
+    ["emoji_bikkuri.PNG", "bikkuri"],
+    ["emoji_sad.PNG",     "sad"],
+    ["emoji_good.PNG",    "good"],
+    ["emoji_hatena.PNG",  "hatena"]
+  ] %>
+
   <% @posts.each do |post| %>
     <div class="card mb-3">
       <div class="card-body">
@@ -9,7 +24,6 @@
         <p class="text-muted">ジャンル：<%= post.category %></p>
         <p><%= truncate(post.content, length: 100) %></p>
 
-        <!-- ▼ 匿名かどうか判定 ▼ -->
         <p class="text-muted small">
           投稿者：
           <% if post.is_anonymous? %>
@@ -18,9 +32,52 @@
             <%= post.user.nickname %>
           <% end %>
         </p>
-        <!-- ▲ 匿名かどうか判定 ▲ -->
 
         <p class="text-muted small"><%= l post.created_at, format: :short %></p>
+
+        <!-- ▼ スタンプ部分（Turbo置換ブロック） ▼ -->
+        <div id="post-<%= post.id %>-stamp-area">
+          <% current_stamp = post.stamp_for(current_user) %>
+
+          <% if user_signed_in? && post.user != current_user %>
+
+            <% if current_stamp.present? %>
+              <% img = stamp_images[current_stamp.stamp_type] %>
+
+              <!-- ▼ 押したスタンプに吹き出し（誰が押したか） ▼ -->
+              <%= image_tag img,
+                  size: "40x40",
+                  class: "stamp-current",
+                  data: {
+                    controller: "popover",
+                    bs_toggle: "popover",
+                    bs_html: true,
+                    bs_content: "#{current_stamp.user.nickname} さんが押しました"
+                  } %>
+
+            <% else %>
+
+              <!-- ▼ まだ押していない → 全スタンプ表示 ▼ -->
+              <div class="d-flex gap-2 mt-2">
+                <% stamps.each do |img, type| %>
+                  <%= form_with model: Stamp.new,
+                                url: post_stamps_path(post),
+                                method: :post do |f| %>
+
+                    <%= f.hidden_field :stamp_type, value: type %>
+                    <button class="stamp-btn">
+                      <%= image_tag img, size: "40x40", alt: type %>
+                    </button>
+
+                  <% end %>
+                <% end %>
+              </div>
+
+            <% end %>
+
+          <% end %>
+        </div>
+        <!-- ▲ スタンプ部分ここまで ▲ -->
 
       </div>
     </div>
@@ -29,5 +86,4 @@
   <% if user_signed_in? %>
     <%= link_to "新規投稿", new_post_path, class: "btn btn-primary mt-3" %>
   <% end %>
-  
 </div>

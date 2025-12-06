@@ -98,6 +98,16 @@ body {
     }
   }
 
+/* ▼ ハンバーガーメニュー展開時に右側に表示させる ▼ */
+.navbar-collapse.collapse.show {
+    margin-left: auto !important;
+    text-align: right !important;
+  }
+  .navbar-nav {
+    margin-left: auto !important;
+    text-align: right !important;
+  }
+
   /* 投稿タイトル（題名） */
 .card-title a {
     color: #a17644 !important;   /* やわらかい木の色（ロゴと親和性◎） */
@@ -144,3 +154,32 @@ h5 a:hover {
 .card span {
   color: #5d4630 !important;
 }
+
+.stamp-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .stamp-buttons img {
+    transition: transform 0.1s;
+  }
+  
+  .stamp-buttons img:hover {
+    transform: scale(1.2);
+  }
+  
+  .stamp-list img {
+    margin-right: 6px;
+  }
+
+  .popover {
+    background-color: #fffaf2; /* やさしいベージュ */
+    border: 2px solid #e0c9a6;
+    border-radius: 12px;
+  }
+  
+  .stamp-current {
+    cursor: pointer;
+  }

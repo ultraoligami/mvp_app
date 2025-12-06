@@ -4,6 +4,7 @@
   <p class="text-muted">ジャンル：<%= @post.category %></p>
   <p class="mt-4"><%= simple_format(@post.content) %></p>
 
+
   <!-- ▼ 匿名かどうか判定 ▼ -->
   <p class="text-muted">
     投稿者：
@@ -13,49 +14,42 @@
       <%= @post.user.nickname %>
     <% end %>
   </p>
-  <!-- ▲ 匿名かどうか判定 ▲ -->
 
   <p class="text-muted small"><%= l @post.created_at, format: :long %></p>
-
   <hr>
 
- 
   <% if user_signed_in? && @post.user == current_user %>
     <%= link_to "編集", edit_post_path(@post), class: "btn btn-warning me-2" %>
     <%= button_to "削除", post_path(@post),
-      method: :delete,
-      form: { class: "d-inline", onsubmit: "return confirm('本当に削除しますか？');" },
-      class: "btn btn-danger" %>
+        method: :delete,
+        form: { class: "d-inline", onsubmit: "return confirm('本当に削除しますか？');" },
+        class: "btn btn-danger" %>
   <% end %>
 
- <!-- ▼ SNSシェア機能 ▼ -->
+  <!-- ▼ SNSシェア機能 ▼ -->
+  <div class="mt-4">
+    <h5>SNSでシェアする</h5>
 
-<div class="mt-4">
-  <h5>SNSでシェアする</h5>
+    <div class="d-flex gap-3 mt-2">
 
-  <div class="d-flex gap-3 mt-2">
+      <!-- X -->
+      <%= link_to "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(@post.title)}&url=#{post_url(@post)}",
+          target: "_blank",
+          rel: "noopener",
+          class: "btn btn-outline-secondary rounded-circle p-3" do %>
+        <i class="fa-brands fa-x-twitter"></i>
+      <% end %>
 
-    <!-- X（旧Twitter） -->
-    <%= link_to "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(@post.title)}&url=#{post_url(@post)}",
-        target: "_blank",
-        rel: "noopener",
-        class: "btn btn-outline-secondary rounded-circle p-3" do %>
-      <i class="fa-brands fa-x-twitter"></i>
-    <% end %>
-
-    <!-- LINE -->
-    <%= link_to "https://social-plugins.line.me/lineit/share?url=#{post_url(@post)}",
-        target: "_blank",
-        rel: "noopener",
-        class: "btn btn-outline-secondary rounded-circle p-3" do %>
-      <i class="fa-brands fa-line"></i>
-    <% end %>
+      <!-- LINE -->
+      <%= link_to "https://social-plugins.line.me/lineit/share?url=#{post_url(@post)}",
+          target: "_blank",
+          rel: "noopener",
+          class: "btn btn-outline-secondary rounded-circle p-3" do %>
+        <i class="fa-brands fa-line"></i>
+      <% end %>
+    </div>
   </div>
-</div>
-
   <!-- ▲ SNSシェア機能 ▲ -->
-
-
 
   <%= link_to "一覧に戻る", posts_path, class: "btn btn-secondary mt-3" %>
 </div>
