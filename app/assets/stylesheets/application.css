@@ -97,3 +97,50 @@ body {
       transform: translateY(10px);
     }
   }
+
+  /* 投稿タイトル（題名） */
+.card-title a {
+    color: #a17644 !important;   /* やわらかい木の色（ロゴと親和性◎） */
+    text-decoration: none;
+}
+
+
+.card-title a:hover {
+  color: #8b5e35 !important;   /* 少し濃い茶色に変化 */
+}
+
+/* 投稿ジャンル・投稿者・投稿内容の補助テキスト */
+.card-text,
+.text-muted,
+.post-meta {
+  color: #5d4630 !important;    /* 濃い木の色 */
+}
+
+/* 詳細ページのタイトル */
+.post-title {
+    color: #a17644 !important;
+}
+
+/* 投稿タイトル（題名）を茶系に強制上書き */
+.card a,
+.post-card a,
+.card h5 a,
+h5 a {
+  color: #a17644 !important;
+  text-decoration: none !important;
+}
+
+.card a:hover,
+.post-card a:hover,
+.card h5 a:hover,
+h5 a:hover {
+  color: #8b5e35 !important;
+}
+
+.card .text-muted,
+.card .card-text,
+.card .post-meta,
+.card small,
+.card span {
+  color: #5d4630 !important;
+}

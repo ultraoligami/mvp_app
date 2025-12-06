@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get :mypage   # ← 自分の投稿一覧表示用
+      get :calendar
     end
   end
 end
