@@ -1,0 +1,36 @@
+<div id="post-<%= post.id %>-stamp">
+
+  <% current_stamp = post.stamp_for(current_user) %>
+
+  <% if current_stamp.present? %>
+    <% img = stamp_images[current_stamp.stamp_type] %>
+
+    <!-- ★ 押したスタンプ（クリックで再選択ポップオーバー） -->
+    <%= image_tag img,
+        size: "40x40",
+        class: "stamp-current",
+        data: {
+          bs_toggle: "popover",
+          bs_html: true,
+          bs_content: render(
+            partial: "posts/stamp_popover",
+            formats: [:html],
+            locals: { post: post, stamps: stamps }
+          )
+        } %>
+
+  <% else %>
+    <!-- ★ まだ選んでいないときのスタンプ一覧 -->
+    <div class="d-flex gap-2 mt-2">
+      <% stamps.each do |img, type| %>
+        <%= form_with model: Stamp.new, url: post_stamps_path(post), method: :post do |f| %>
+          <%= f.hidden_field :stamp_type, value: type %>
+          <button class="stamp-btn">
+            <%= image_tag img, size: "40x40", alt: type %>
+          </button>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

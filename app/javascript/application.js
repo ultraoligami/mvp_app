@@ -1,9 +1,17 @@
 import "@hotwired/turbo-rails"
-Turbo.session.drive = false  // ← Turbo無効化（DELETEを確実に動かす）
-
 import "controllers"
 import "ai_humor"
 
+// ▼ Bootstrap を importmap 経由で読み込む
+import * as bootstrap from "bootstrap"
+
+// ▼ Tooltip 初期化
+document.addEventListener("DOMContentLoaded", () => {
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+});
+
+// ▼ ハンバーガーメニュー
 document.addEventListener("turbo:load", () => {
   const toggler = document.querySelector(".custom-toggler");
   const menuIcon = document.getElementById("menu-icon");
@@ -11,20 +19,34 @@ document.addEventListener("turbo:load", () => {
 
   if (!toggler || !menuIcon || !menu) return;
 
-  // ▼ 初回ロード時の状態を反映
   menuIcon.src =
     toggler.getAttribute("aria-expanded") === "true"
-      ? "/assets/yotsuba_kare.PNG"   // 開いている時
-      : "/assets/yotsuba.PNG";       // 閉じている時
+      ? "/assets/yotsuba_kare.PNG"
+      : "/assets/yotsuba.PNG";
 
-  // ▼ クリックされた瞬間にアイコン切り替え（遅延なし）
   toggler.addEventListener("click", () => {
     setTimeout(() => {
       const expanded = toggler.getAttribute("aria-expanded") === "true";
 
       menuIcon.src = expanded
-        ? "/assets/yotsuba_kare.PNG"   // 開いた時の画像
-        : "/assets/yotsuba.PNG";       // 閉じた時の画像
+        ? "/assets/yotsuba_kare.PNG"
+        : "/assets/yotsuba.PNG";
     }, 10);
   });
 });
+
+// ▼ Popover 初期化
+function initPopovers() {
+  const popoverList = document.querySelectorAll('[data-bs-toggle="popover"]');
+  popoverList.forEach((el) => {
+    new bootstrap.Popover(el, {
+      html: true,
+      sanitize: false,
+      placement: "top",
+      trigger: "click"
+    });
+  });
+}
+
+document.addEventListener("turbo:load", initPopovers);
+document.addEventListener("DOMContentLoaded", initPopovers);
