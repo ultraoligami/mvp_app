@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <head>
     <title>MvpApp</title>
     <%= csrf_meta_tags %>
@@ -14,57 +12,52 @@
     >
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <!-- importmap を使った JS 読み込み -->
     <%= javascript_importmap_tags %>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
 
-  <!-- Turbo完全オフ（ログアウト・削除のため） -->
+  <!-- Turbo完全オフ（ログアウト・DELETE 安定動作） -->
   <body data-turbo="false">
 
-    <!-- ▼▼ ハンバーガーメニュー付きナビバー ▼▼ -->
+    <!-- ▼▼ ナビバー ▼▼ -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-         <%= image_tag "sabolog_logo.png", alt: "さぼログ", class: "nav-logo" %>
+          <%= image_tag "sabolog_logo.png", alt: "さぼログ", class: "nav-logo" %>
         </a>
 
-        <!-- ハンバーガーボタン -->
-
-        <button class="navbar-toggler custom-toggler" type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav">
-        <%= image_tag "yotsuba.PNG", class: "menu-icon", id: "menu-icon" %>
+        <!-- ▼ ハンバーガー -->
+        <button class="navbar-toggler custom-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <%= image_tag "yotsuba.PNG", class: "menu-icon", id: "menu-icon" %>
         </button>
 
-        <!-- メニュー中身 -->
+        <!-- ▼ メニュー -->
         <div class="collapse navbar-collapse justify-content-end text-end" id="navbarNav">
           <ul class="navbar-nav ms-auto">
 
             <% if user_signed_in? %>
-              <!-- ▼ ログインしている場合 ▼ -->
               <li class="nav-item">
                 <span class="nav-link">
                   <strong><%= current_user.nickname %></strong> さん
                 </span>
               </li>
 
-              <li class="nav-item">
-                <%= link_to "新規投稿", new_post_path, class: "nav-link" %>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to "投稿一覧", posts_path, class: "nav-link" %>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to "マイページ", mypage_posts_path, class: "nav-link" %>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %>
-              </li>
+              <li class="nav-item"><%= link_to "新規投稿", new_post_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "投稿一覧", posts_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "マイページ", mypage_posts_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %></li>
 
               <li class="nav-item">
                 <%= link_to "ログアウト",
@@ -74,37 +67,43 @@
               </li>
 
             <% else %>
-              <!-- ▼ ログインしていない場合 ▼ -->
-              <li class="nav-item">
-                <%= link_to "投稿一覧", posts_path, class: "nav-link" %>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
-              </li>
-
+              <li class="nav-item"><%= link_to "投稿一覧", posts_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
             <% end %>
 
           </ul>
         </div>
       </div>
     </nav>
-    <!-- ▲▲ ハンバーガーメニュー付きナビバー ▲▲ -->
+    <!-- ▲▲ ナビバー ▲▲ -->
 
     <%= yield %>
 
-    <!-- ▼▼ フッター ▼▼ -->
+    <% if user_signed_in? %>
+      <!-- ▼▼ 右下常駐マスコット（ログイン時のみ） ▼▼ -->
+      <div class="floating-mascot d-none d-md-flex">
+
+        <!-- 吹き出し（左側へ移動） -->
+        <div class="floating-speech" id="floating-mascot-text">
+          今日もお疲れ様やね〜
+        </div>
+
+        <!-- マスコット画像（右側） -->
+        <%= image_tag "pon_happy(ver2).PNG",
+            id: "floating-mascot-image",
+            class: "floating-mascot-image",
+            alt: "マスコット" %>
+      </div>
+      <!-- ▲▲ 右下常駐マスコット ▲▲ -->
+    <% end %>
+
+    <!-- ▼ ▼ フッター ▼ ▼ -->
     <footer class="text-center mt-5 mb-4">
       <%= link_to "利用規約", terms_path, class: "text-secondary me-3" %>
       <%= link_to "プライバシーポリシー", privacy_path, class: "text-secondary" %>
     </footer>
-    <!-- ▲▲ フッター ▲▲ -->
+    <!-- ▲ ▲ フッター ▲ ▲ -->
 
-    <!-- Bootstrap JS -->
-    <%= javascript_importmap_tags %>
   </body>
 </html>
