@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
-  # 未ログインでも index/show を閲覧可能にする
   before_action :authenticate_user!, except: [:index, :show]
-
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -12,21 +10,24 @@ class PostsController < ApplicationController
   def show
   end
 
-  # ★ 自分の投稿一覧（マイページ）
+  # ★ マイページ（投稿一覧＋グラフ）
+
   def mypage
     redirect_to new_user_session_path, alert: "ログインしてください" and return unless user_signed_in?
-
+  
+    # 投稿一覧（表示用）
     @posts = current_user.posts.order(created_at: :desc)
+  
+    # カテゴリ別の集計（ORDER を含ませない）
+    @category_data = current_user.posts.group(:category).count
   end
 
   # ★ カレンダー表示
   def calendar
     redirect_to new_user_session_path, alert: "ログインしてください" and return unless user_signed_in?
 
-    # month パラメータがあればその月、なければ今日の月
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
 
-    # 選択月の自分の投稿だけ取得
     @posts = current_user.posts.where(
       created_at: @date.beginning_of_month..@date.end_of_month
     )
@@ -67,7 +68,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  # 投稿者本人だけが編集/更新/削除できる
   def correct_user
     unless @post.user == current_user
       redirect_to posts_path, alert: "権限がありません"

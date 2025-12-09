@@ -2,21 +2,31 @@
   <h1>マイページ</h1>
   <p class="text-muted">あなたが投稿した記録です</p>
 
-  <!-- ▼追加：プロフィール編集ボタン -->
+  <!-- ▼ プロフィール編集 -->
   <div class="mb-3">
     <%= link_to "プロフィールを編集する",
                 edit_user_registration_path,
                 class: "btn btn-outline-primary" %>
   </div>
 
-  <div class="text-center mt-3 mb-4">
+  <!-- ▼ カレンダー -->
+  <div class="mb-3">
   <%= link_to "カレンダーを見る", calendar_posts_path, class: "btn btn-outline-success" %>
   </div>
-  <!-- ▲追加ここまで -->
 
   <hr>
 
   <% if @posts.any? %>
+
+    <!-- ▼ カテゴリー比率の円グラフ表示 -->
+    <div class="my-4 text-center">
+      <h4>カテゴリー別投稿比率</h4>
+      <%= pie_chart @category_data, height: "300px", library: { legend: { position: "bottom" } } %>
+    </div>
+
+    <hr>
+
+    <!-- ▼ 投稿一覧 -->
     <% @posts.each do |post| %>
       <div class="card mb-3">
         <div class="card-body">
@@ -24,12 +34,21 @@
           <p class="text-muted">ジャンル：<%= post.category %></p>
           <p><%= truncate(post.content, length: 100) %></p>
           <p class="text-muted small"><%= l post.created_at, format: :long %></p>
-          <%= link_to "詳細を見る", post_path(post), class: "btn btn-primary btn-sm" %>
+
+          <%= link_to "詳細を見る", post_path(post), class: "btn-sabo" %>
         </div>
       </div>
     <% end %>
+
   <% else %>
-    <p>まだ投稿がありません。</p>
+
+    <!-- ▼ 投稿ゼロの場合 -->
+    <div class="text-center my-5">
+      <h4>まだ投稿がありません</h4>
+      <p class="text-muted">まずは記録をしてみましょう！</p>
+      <%= link_to "初めての投稿をする", new_post_path, class: "btn btn-success" %>
+    </div>
+
   <% end %>
 
   <%= link_to "新規投稿", new_post_path, class: "btn btn-success mt-3" %>
