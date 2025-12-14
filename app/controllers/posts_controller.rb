@@ -10,28 +10,26 @@ class PostsController < ApplicationController
   def show
   end
 
-  # ★ マイページ（投稿一覧＋グラフ）
-
+  # ★ マイページ（カレンダー＋グラフ＋投稿一覧）
   def mypage
     redirect_to new_user_session_path, alert: "ログインしてください" and return unless user_signed_in?
-  
-    # 投稿一覧（表示用）
+
+    # 投稿一覧
     @posts = current_user.posts.order(created_at: :desc)
-  
-    # カテゴリ別の集計（ORDER を含ませない）
+
+    # グラフ用（カテゴリ別）
     @category_data = current_user.posts.group(:category).count
-  end
 
-  # ★ カレンダー表示
-  def calendar
-    redirect_to new_user_session_path, alert: "ログインしてください" and return unless user_signed_in?
-
+    # カレンダー用
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
-
-    @posts = current_user.posts.where(
+    @calendar_posts = current_user.posts.where(
       created_at: @date.beginning_of_month..@date.end_of_month
     )
   end
+
+  # ▼ calendar アクションは今後不要（削除推奨）
+  # def calendar
+  # end
 
   def new
     @post = current_user.posts.build
@@ -46,8 +44,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -69,9 +66,7 @@ class PostsController < ApplicationController
   end
 
   def correct_user
-    unless @post.user == current_user
-      redirect_to posts_path, alert: "権限がありません"
-    end
+    redirect_to posts_path, alert: "権限がありません" unless @post.user == current_user
   end
 
   def post_params
