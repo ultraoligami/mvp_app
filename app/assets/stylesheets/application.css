@@ -333,3 +333,58 @@ h5 a:hover {
       max-width: 180px;
     }
   }
+
+  /* =========================
+   🌳 アプリ風アクションボタン（Bootstrap上書き完全版）
+   ========================= */
+
+.btn.app-action-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 14px 22px !important;
+  border-radius: 18px !important;
+
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.15s ease !important;
+
+  border: none !important;
+}
+
+/* ▼ メイン（新規投稿） */
+.btn.app-action-btn.primary {
+  background-color: #8fcf9f !important;
+  color: #2f5d3a !important;
+}
+
+.btn.app-action-btn.primary:hover {
+  background-color: #7fbf8f !important;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ▼ サブ（プロフィール・カレンダー） */
+.btn.app-action-btn.secondary {
+  background-color: #f3eada !important;
+  color: #6b4e2e !important;
+  border: 2px solid #d1b88f !important;
+}
+
+.btn.app-action-btn.secondary:hover {
+  background-color: #eadfcd !important;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ▼ スマホ時は全幅 */
+@media (max-width: 576px) {
+  .btn.app-action-btn {
+    width: 100% !important;
+  }
+}

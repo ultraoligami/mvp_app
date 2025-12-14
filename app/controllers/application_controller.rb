@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   # ▼ ログイン後に投稿一覧へリダイレクト
   def after_sign_in_path_for(resource)
-    posts_path
+    mypage_posts_path
   end
 
   # ▼ Strong Parameter 追加
