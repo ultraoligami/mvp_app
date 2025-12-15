@@ -2,29 +2,32 @@
   <h1>マイページ</h1>
   <p class="text-muted">あなたが投稿した記録です</p>
 
-  <!-- ▼追加：プロフィール編集ボタン -->
-  <div class="mb-3">
-    <%= link_to "プロフィールを編集する",
-                edit_user_registration_path,
-                class: "btn btn-outline-primary" %>
-  </div>
-
-  <div class="text-center mt-3 mb-4">
-  <%= link_to "カレンダーを見る", calendar_posts_path, class: "btn btn-outline-success" %>
-  </div>
-  <!-- ▲追加ここまで -->
-
   <hr>
 
   <% if @posts.any? %>
     <% @posts.each do |post| %>
       <div class="card mb-3">
         <div class="card-body">
+
           <h3><%= link_to post.title, post_path(post) %></h3>
           <p class="text-muted">ジャンル：<%= post.category %></p>
           <p><%= truncate(post.content, length: 100) %></p>
           <p class="text-muted small"><%= l post.created_at, format: :long %></p>
-          <%= link_to "詳細を見る", post_path(post), class: "btn btn-primary btn-sm" %>
+
+          <!-- ▼ マイページ用スタンプ表示 -->
+          <% post.stamps.each do |stamp| %>
+            <% next if stamp.user == current_user %>
+
+            <%= image_tag "emoji_#{stamp.stamp_type}.PNG",
+                          size: "36x36",
+                          class: "stamp-current",
+                          data: {
+                            controller: "popover",
+                            bs_toggle: "popover",
+                            bs_content: "#{stamp.user.nickname} さんが押しました"
+                          } %>
+          <% end %>
+
         </div>
       </div>
     <% end %>

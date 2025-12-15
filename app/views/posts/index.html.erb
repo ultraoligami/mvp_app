@@ -1,7 +1,6 @@
 <div class="container mt-5">
   <h1 class="mb-4">投稿一覧</h1>
 
-  <%# ▼ stamp_type → 画像ファイルマッピング ▼ %>
   <% stamp_images = {
     "bikkuri" => "emoji_bikkuri.PNG",
     "sad"     => "emoji_sad.PNG",
@@ -26,58 +25,32 @@
 
         <p class="text-muted small">
           投稿者：
-          <% if post.is_anonymous? %>
-            匿名さん
-          <% else %>
-            <%= post.user.nickname %>
-          <% end %>
+          <%= post.is_anonymous? ? "匿名さん" : post.user.nickname %>
         </p>
 
         <p class="text-muted small"><%= l post.created_at, format: :short %></p>
 
-        <!-- ▼ スタンプ部分（Turbo置換ブロック） ▼ -->
-        <div id="post-<%= post.id %>-stamp-area">
+        <!-- ▼ スタンプ操作（投稿一覧専用） -->
+        <% if user_signed_in? && post.user != current_user %>
           <% current_stamp = post.stamp_for(current_user) %>
 
-          <% if user_signed_in? && post.user != current_user %>
+          <% if current_stamp.present? %>
 
-            <% if current_stamp.present? %>
-              <% img = stamp_images[current_stamp.stamp_type] %>
-
-              <!-- ▼ 押したスタンプに吹き出し（誰が押したか） ▼ -->
-              <%= image_tag img,
-                  size: "40x40",
-                  class: "stamp-current",
-                  data: {
-                    controller: "popover",
-                    bs_toggle: "popover",
-                    bs_html: true,
-                    bs_content: "#{current_stamp.user.nickname} さんが押しました"
-                  } %>
-
+            <% if current_stamp.user == current_user %>
+              <!-- 自分が押した → 選択画面に戻す -->
+              <%= render "stamp_popover", post: post, stamps: stamps %>
             <% else %>
-
-              <!-- ▼ まだ押していない → 全スタンプ表示 ▼ -->
-              <div class="d-flex gap-2 mt-2">
-                <% stamps.each do |img, type| %>
-                  <%= form_with model: Stamp.new,
-                                url: post_stamps_path(post),
-                                method: :post do |f| %>
-
-                    <%= f.hidden_field :stamp_type, value: type %>
-                    <button class="stamp-btn">
-                      <%= image_tag img, size: "40x40", alt: type %>
-                    </button>
-
-                  <% end %>
-                <% end %>
-              </div>
-
+              <!-- 他人が押した → 表示のみ -->
+              <%= image_tag stamp_images[current_stamp.stamp_type],
+                            size: "40x40",
+                            alt: current_stamp.stamp_type %>
             <% end %>
 
+          <% else %>
+            <!-- 押していない → 選択 -->
+            <%= render "stamp_popover", post: post, stamps: stamps %>
           <% end %>
-        </div>
-        <!-- ▲ スタンプ部分ここまで ▲ -->
+        <% end %>
 
       </div>
     </div>
