@@ -57,3 +57,5 @@ end
 gem "devise"
 gem "sassc-rails"
 gem "ruby-openai"
+gem "chartkick"
+gem "groupdate"

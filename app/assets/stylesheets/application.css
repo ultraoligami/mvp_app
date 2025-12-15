@@ -3,135 +3,130 @@
  *= require_self
  */
 
-/* Bootstrap を CDN で使っているので import は不要 */
+/* =========================
+   🌿 全体デザイン基礎設定
+   ========================= */
 
 /* 全ページ基本フォント */
 body {
-    font-family: 'M PLUS Rounded 1c', sans-serif !important;
-  }
+  font-family: 'M PLUS Rounded 1c', sans-serif !important;
+  background-color: #f6f3e9; /* やさしい森っぽいベージュ */
+}
 
+/* ロゴ */
 .nav-logo {
-    height: 80px;     /* 好みに応じて調整可能 */
-    width: auto;
-    display: block;
-  }
+  height: 80px;
+  width: auto;
+  display: block;
+}
 
-  .navbar {
-    background-color: #f3eada !important;  /* 明るい木の色 */
-    border-bottom: 2px solid #d1b88f;      /* 木枠風ライン */
-  }
-  
+/* ナビバー（木の温もり） */
+.navbar {
+  background-color: #f3eada !important;
+  border-bottom: 2px solid #d1b88f;
+}
 
-  .navbar-toggler {
-    border-color: #bfa174;
-  }
-  .navbar-toggler-icon {
-    filter: invert(38%) sepia(20%) saturate(500%) hue-rotate(10deg);
-  }
+.navbar-toggler {
+  border-color: #bfa174;
+}
 
-  .custom-toggler .menu-icon {
-    width: 36px;
-    height: auto;
-  }
+/* ハンバーガーアイコン */
+.custom-toggler .menu-icon {
+  width: 36px;
+  height: auto;
+}
+
+.navbar-toggler-icon {
+  filter: invert(38%) sepia(20%) saturate(500%) hue-rotate(10deg);
+}
+
 
 /* =========================
    📱 スマホ（〜576px）対応
    ========================= */
-   @media (max-width: 576px) {
+@media (max-width: 576px) {
 
-    /* ▼ ロゴをスマホ向けに縮小 */
-    .hero-logo-image {
-      width: 70% !important;
-    }
-  
-    /* ▼ タヌキ画像の位置調整 */
-    .hero-mascot-image {
-      width: 140px !important;
-      right: -60px !important;
-      bottom: -40px !important;
-    }
-  
-    /* ▼ スマホでの上下の余白を増やす（窮屈防止） */
-    .home-wrapper {
-      padding-top: 40px !important;
-    }
-  
-    .home-hero {
-      margin-bottom: 40px !important;
-    }
-  
-    /* ▼ ボタンをスマホで全幅に */
-    .home-buttons .btn {
-      width: 90% !important;
-      min-width: auto;
-    }
-  
-    /* ▼ フォント少し大きめに調整 */
-    .home-title {
-      font-size: 1.8rem !important;
-    }
-  
-    .home-subtitle {
-      font-size: 1rem !important;
-    }
-  
-    /* ▼ ナビゲーション内の文字ゆとり */
-    .navbar-nav .nav-link {
-      padding: 12px 0 !important;
-      font-size: 1.1rem;
-    }
-  
-    /* ▼ ナビバーのロゴを小さめに */
-    .nav-logo {
-      height: 50px !important;
-    }
-  
-    /* ▼ ハンバーガーアイコンサイズ */
-    .menu-icon {
-      width: 30px !important;
-    }
+  .hero-logo-image {
+    width: 70% !important;
   }
 
-  @media (max-width: 576px) {
-    .splash-wrapper .hero-logo-wrapper {
-      transform: translateY(10px);
-    }
+  .hero-mascot-image {
+    width: 140px !important;
+    right: -60px !important;
+    bottom: -40px !important;
   }
 
-/* ▼ ハンバーガーメニュー展開時に右側に表示させる ▼ */
+  .home-wrapper {
+    padding-top: 40px !important;
+  }
+
+  .home-hero {
+    margin-bottom: 40px !important;
+  }
+
+  /* ボタンをスマホ向けレイアウトに */
+  .home-buttons .btn {
+    width: 90% !important;
+    min-width: auto;
+  }
+
+  .home-title {
+    font-size: 1.8rem !important;
+  }
+
+  .home-subtitle {
+    font-size: 1rem !important;
+  }
+
+  /* ナビ内の文字大型化 */
+  .navbar-nav .nav-link {
+    padding: 12px 0 !important;
+    font-size: 1.1rem;
+  }
+
+  /* スマホロゴ縮小 */
+  .nav-logo {
+    height: 50px !important;
+  }
+
+  /* ハンバーガーアイコン縮小 */
+  .menu-icon {
+    width: 30px !important;
+  }
+}
+
+/* スプラッシュ画面微調整 */
+@media (max-width: 576px) {
+  .splash-wrapper .hero-logo-wrapper {
+    transform: translateY(10px);
+  }
+}
+
+/* ハンバーガーメニュー展開時の右寄せ */
 .navbar-collapse.collapse.show {
-    margin-left: auto !important;
-    text-align: right !important;
-  }
-  .navbar-nav {
-    margin-left: auto !important;
-    text-align: right !important;
-  }
+  margin-left: auto !important;
+  text-align: right !important;
+}
 
-  /* 投稿タイトル（題名） */
-.card-title a {
-    color: #a17644 !important;   /* やわらかい木の色（ロゴと親和性◎） */
-    text-decoration: none;
+.navbar-nav {
+  margin-left: auto !important;
+  text-align: right !important;
 }
 
 
-.card-title a:hover {
-  color: #8b5e35 !important;   /* 少し濃い茶色に変化 */
+/* =========================
+   🪵 カードデザイン（どうぶつの森ぽい厚み）
+   ========================= */
+
+.card {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(150, 130, 100, 0.15);
+  background-color: #fffdf8;
 }
 
-/* 投稿ジャンル・投稿者・投稿内容の補助テキスト */
-.card-text,
-.text-muted,
-.post-meta {
-  color: #5d4630 !important;    /* 濃い木の色 */
-}
-
-/* 詳細ページのタイトル */
-.post-title {
-    color: #a17644 !important;
-}
-
-/* 投稿タイトル（題名）を茶系に強制上書き */
+/* タイトル色（木の色） */
+.card-title a,
 .card a,
 .post-card a,
 .card h5 a,
@@ -140,6 +135,7 @@ h5 a {
   text-decoration: none !important;
 }
 
+.card-title a:hover,
 .card a:hover,
 .post-card a:hover,
 .card h5 a:hover,
@@ -147,39 +143,248 @@ h5 a:hover {
   color: #8b5e35 !important;
 }
 
-.card .text-muted,
-.card .card-text,
-.card .post-meta,
+/* 補助テキスト */
+.card-text,
+.text-muted,
+.post-meta,
 .card small,
 .card span {
   color: #5d4630 !important;
 }
 
+/* 詳細ページタイトル */
+.post-title {
+  color: #a17644 !important;
+}
+
+
+/* =========================
+   ⭐ スタンプ関連デザイン
+   ========================= */
+
 .stamp-btn {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.stamp-buttons img {
+  transition: transform 0.1s;
+}
+
+.stamp-buttons img:hover {
+  transform: scale(1.2);
+}
+
+.stamp-list img {
+  margin-right: 6px;
+}
+
+/* ポップオーバーの見た目 */
+.popover {
+  background-color: #fffaf2;
+  border: 2px solid #e0c9a6;
+  border-radius: 12px;
+}
+
+.stamp-current {
+  cursor: pointer;
+}
+
+
+/* =========================
+   🎀 さぼログオリジナルボタン（可愛いベージュ）
+   ========================= */
+
+.btn-sabo {
+  background-color: #f7e7ce; /* 優しいベージュ */
+  color: #8b5e3c; /* 木っぽいブラウン */
+  border: 2px solid #e3c7a1;
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-weight: 600;
+  box-shadow: 0 3px 0 #d6b894;
+  transition: all 0.15s ease;
+}
+
+.btn-sabo:hover {
+  background-color: #faefd9;
+  box-shadow: 0 4px 6px rgba(120, 100, 80, 0.25);
+}
+
+.btn-sabo:active {
+  box-shadow: 0 1px 0 #d6b894;
+  transform: translateY(2px);
+}
+
+/* =============================
+   🌲 掲示板ボード（全体）
+   ============================= */
+   .board-wrapper {
+    background: #f7f1df;
+    border: 6px solid #d3b88c;
+    border-radius: 22px;
+    padding: 40px 30px;
+    margin: 20px auto;
+    box-shadow: 0 8px 0 #c3a67d;
   }
   
-  .stamp-buttons img {
-    transition: transform 0.1s;
+  /* =============================
+     📌 ピン付き投稿カード
+     ============================= */
+  .post-card {
+    position: relative;
+    background: #fffdf7;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 3px 6px rgba(120, 100, 80, 0.18);
   }
   
-  .stamp-buttons img:hover {
-    transform: scale(1.2);
+  /* ピン（左） */
+  .pin-left {
+    position: absolute;
+    top: -18px;
+    left: -12px;
+    width: 38px;
+    pointer-events: none;
   }
   
-  .stamp-list img {
-    margin-right: 6px;
+  /* ピン（右） */
+  .pin-right {
+    position: absolute;
+    top: -18px;
+    right: -12px;
+    width: 38px;
+    pointer-events: none;
+  }
+  
+  /* タイトルリンク */
+  .post-title-link {
+    color: #a17644 !important;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .post-title-link:hover {
+    color: #8b5e35 !important;
   }
 
-  .popover {
-    background-color: #fffaf2; /* やさしいベージュ */
-    border: 2px solid #e0c9a6;
-    border-radius: 12px;
+/* =============================
+   🐾 右下常駐マスコット
+   ============================= */
+   .floating-mascot {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
   }
   
-  .stamp-current {
-    cursor: pointer;
+  /* マスコット画像 */
+  .floating-mascot-image {
+    width: 80px;
+    height: auto;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.15));
   }
+  
+  /* ふきだし */
+  .floating-speech {
+    background: #fffaf0;
+    border-radius: 16px;
+    padding: 10px 14px;
+    max-width: 220px;
+    font-size: 0.9rem;
+    color: #5d4630;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.12);
+    position: relative;
+  }
+  
+  /* ふきだしの三角 */
+  .floating-speech::after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    bottom: 10px;
+    border-width: 8px 0 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fffaf0;
+  }
+  
+  /* ちょっとふわっと揺れてる感じ（お好みで） */
+  .floating-mascot {
+    animation: mascotFloat 3s ease-in-out infinite;
+  }
+  
+  @keyframes mascotFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-4px); }
+  }
+  
+  /* スマホでは少し小さく */
+  @media (max-width: 576px) {
+    .floating-mascot-image {
+      width: 60px;
+    }
+    .floating-speech {
+      font-size: 0.8rem;
+      max-width: 180px;
+    }
+  }
+
+  /* =========================
+   🌳 アプリ風アクションボタン（Bootstrap上書き完全版）
+   ========================= */
+
+.btn.app-action-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 14px 22px !important;
+  border-radius: 18px !important;
+
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.15s ease !important;
+
+  border: none !important;
+}
+
+/* ▼ メイン（新規投稿） */
+.btn.app-action-btn.primary {
+  background-color: #8fcf9f !important;
+  color: #2f5d3a !important;
+}
+
+.btn.app-action-btn.primary:hover {
+  background-color: #7fbf8f !important;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ▼ サブ（プロフィール・カレンダー） */
+.btn.app-action-btn.secondary {
+  background-color: #f3eada !important;
+  color: #6b4e2e !important;
+  border: 2px solid #d1b88f !important;
+}
+
+.btn.app-action-btn.secondary:hover {
+  background-color: #eadfcd !important;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ▼ スマホ時は全幅 */
+@media (max-width: 576px) {
+  .btn.app-action-btn {
+    width: 100% !important;
+  }
+}
