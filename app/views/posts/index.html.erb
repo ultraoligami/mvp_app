@@ -34,11 +34,7 @@
 
         <p class="text-muted small">
           投稿者：
-          <% if post.is_anonymous? %>
-            匿名さん
-          <% else %>
-            <%= post.user.nickname %>
-          <% end %>
+          <%= post.is_anonymous? ? "匿名さん" : post.user.nickname %>
         </p>
 
         <p class="text-muted small"><%= l post.created_at, format: :short %></p>
@@ -62,6 +58,9 @@
                     bs_content: "#{current_stamp.user.nickname} さんが押しました"
                   } %>
 
+            <% if current_stamp.user == current_user %>
+              <!-- 自分が押した → 選択画面に戻す -->
+              <%= render "stamp_popover", post: post, stamps: stamps %>
             <% else %>
 
               <div class="d-flex gap-2 mt-2">
@@ -81,6 +80,9 @@
 
             <% end %>
 
+          <% else %>
+            <!-- 押していない → 選択 -->
+            <%= render "stamp_popover", post: post, stamps: stamps %>
           <% end %>
         </div>
 
