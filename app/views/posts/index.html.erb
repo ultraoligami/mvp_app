@@ -10,9 +10,9 @@
 
   <% stamps = [
     ["emoji_bikkuri.PNG", "bikkuri"],
-    ["emoji_sad.PNG",     "sad"],
-    ["emoji_good.PNG",    "good"],
-    ["emoji_hatena.PNG",  "hatena"]
+    ["emoji_sad.PNG", "sad"],
+    ["emoji_good.PNG", "good"],
+    ["emoji_hatena.PNG", "hatena"]
   ] %>
 
   <% @posts.each do |post| %>
@@ -28,28 +28,56 @@
           <%= post.is_anonymous? ? "匿名さん" : post.user.nickname %>
         </p>
 
-        <p class="text-muted small"><%= l post.created_at, format: :short %></p>
+        <p class="text-muted small">
+          <%= l post.created_at, format: :short %>
+        </p>
 
-        <!-- ▼ スタンプ操作（投稿一覧専用） -->
         <% if user_signed_in? && post.user != current_user %>
           <% current_stamp = post.stamp_for(current_user) %>
 
-          <% if current_stamp.present? %>
+          <div class="mt-2">
 
-            <% if current_stamp.user == current_user %>
-              <!-- 自分が押した → 選択画面に戻す -->
-              <%= render "stamp_popover", post: post, stamps: stamps %>
+            <% if current_stamp.present? %>
+
+              <% if current_stamp.user == current_user %>
+                <!-- 自分が押した → 選択に戻す -->
+                <div class="d-flex gap-2">
+                  <% stamps.each do |img, type| %>
+                    <%= form_with model: Stamp.new,
+                                  url: post_stamps_path(post),
+                                  method: :post do |f| %>
+                      <%= f.hidden_field :stamp_type, value: type %>
+                      <button class="stamp-btn">
+                        <%= image_tag img, size: "40x40" %>
+                      </button>
+                    <% end %>
+                  <% end %>
+                </div>
+
+              <% else %>
+                <!-- 他人が押した → 表示のみ -->
+                <%= image_tag stamp_images[current_stamp.stamp_type],
+                              size: "40x40",
+                              class: "stamp-current" %>
+              <% end %>
+
             <% else %>
-              <!-- 他人が押した → 表示のみ -->
-              <%= image_tag stamp_images[current_stamp.stamp_type],
-                            size: "40x40",
-                            alt: current_stamp.stamp_type %>
+              <!-- 未スタンプ -->
+              <div class="d-flex gap-2">
+                <% stamps.each do |img, type| %>
+                  <%= form_with model: Stamp.new,
+                                url: post_stamps_path(post),
+                                method: :post do |f| %>
+                    <%= f.hidden_field :stamp_type, value: type %>
+                    <button class="stamp-btn">
+                      <%= image_tag img, size: "40x40" %>
+                    </button>
+                  <% end %>
+                <% end %>
+              </div>
             <% end %>
 
-          <% else %>
-            <!-- 押していない → 選択 -->
-            <%= render "stamp_popover", post: post, stamps: stamps %>
-          <% end %>
+          </div>
         <% end %>
 
       </div>
@@ -57,6 +85,6 @@
   <% end %>
 
   <% if user_signed_in? %>
-    <%= link_to "新規投稿", new_post_path, class: "btn btn-primary mt-3" %>
+    <%= link_to "新規投稿", new_post_path, class: "btn btn-success mt-3" %>
   <% end %>
 </div>
