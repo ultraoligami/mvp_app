@@ -1,8 +1,23 @@
-<h2 class="calendar-title"><%= @date.strftime("%Y年 %m月") %></h2>
+<h3 class="calendar-title text-center mb-3">
+  <%= @date.strftime("%Y年 %m月") %>
+</h3>
 
-<div class="calendar-nav">
-  <%= link_to "〈 前の月", calendar_posts_path(month: (@date - 1.month).to_s), class: "btn btn-light" %>
-  <%= link_to "次の月 〉", calendar_posts_path(month: (@date + 1.month).to_s), class: "btn btn-light" %>
+<div class="d-flex justify-content-between mb-3">
+  <%= link_to "〈 前の月",
+              mypage_posts_path(
+                month: (@date - 1.month).to_s,
+                anchor: "calendar-section"
+              ),
+              class: "btn app-action-btn secondary btn-sm",
+              data: { turbo: false } %>
+
+  <%= link_to "次の月 〉",
+              mypage_posts_path(
+                month: (@date + 1.month).to_s,
+                anchor: "calendar-section"
+              ),
+              class: "btn app-action-btn secondary btn-sm",
+              data: { turbo: false } %>
 </div>
 
 <table class="calendar-table">
@@ -15,7 +30,7 @@
   </thead>
 
   <tbody>
-    <% calendar(@date, @posts).each do |week| %>
+    <% calendar(@date, @calendar_posts).each do |week| %>
       <tr>
         <% week.each do |day| %>
           <% classes = [] %>
@@ -24,11 +39,9 @@
           <td class="<%= classes.join(" ") %>">
             <div class="day-number"><%= day.day %></div>
 
-            <%# ▼ 投稿がある日だけスタンプ画像を表示 %>
-            <% if @posts.any? { |p| p.created_at.to_date == day } %>
+            <% if @calendar_posts.any? { |p| p.created_at.to_date == day } %>
               <%= image_tag "kareha.PNG", class: "calendar-stamp" %>
             <% end %>
-
           </td>
         <% end %>
       </tr>

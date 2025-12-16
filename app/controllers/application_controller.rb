@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # ▼ ログイン後に投稿一覧へリダイレクト
+  def after_sign_in_path_for(resource)
+    mypage_posts_path
+  end
+
+  # ▼ Strong Parameter 追加
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname])

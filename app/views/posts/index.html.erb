@@ -1,12 +1,16 @@
 <div class="container mt-5">
-  <h1 class="mb-4">投稿一覧</h1>
 
-  <% stamp_images = {
-    "bikkuri" => "emoji_bikkuri.PNG",
-    "sad"     => "emoji_sad.PNG",
-    "good"    => "emoji_good.PNG",
-    "hatena"  => "emoji_hatena.PNG"
-  } %>
+  <!-- ▼ 掲示板の木枠 -->
+  <div class="board-wrapper">
+    <h1 class="mb-4">投稿一覧</h1>
+
+    <%# ▼ stamp_type → 画像ファイルマッピング ▼ %>
+    <% stamp_images = {
+      "bikkuri" => "emoji_bikkuri.PNG",
+      "sad"     => "emoji_sad.PNG",
+      "good"    => "emoji_good.PNG",
+      "hatena"  => "emoji_hatena.PNG"
+    } %>
 
   <% stamps = [
     ["emoji_bikkuri.PNG", "bikkuri"],
@@ -15,11 +19,16 @@
     ["emoji_hatena.PNG", "hatena"]
   ] %>
 
-  <% @posts.each do |post| %>
-    <div class="card mb-3">
-      <div class="card-body">
+    <% @posts.each do |post| %>
 
-        <h4><%= link_to post.title, post_path(post) %></h4>
+      <!-- ▼ ピン付き投稿カード ▼ -->
+      <div class="post-card">
+
+        <!-- 左右に画鋲を刺す -->
+        <%= image_tag "pin.png", class: "pin-left" %>
+        <%= image_tag "pin.png", class: "pin-right" %>
+
+        <h4><%= link_to post.title, post_path(post), class: "post-title-link" %></h4>
         <p class="text-muted">ジャンル：<%= post.category %></p>
         <p><%= truncate(post.content, length: 100) %></p>
 
@@ -81,8 +90,9 @@
         <% end %>
 
       </div>
-    </div>
-  <% end %>
+      <!-- ▲ ピン付き投稿カードここまで ▲ -->
+
+    <% end %>
 
   <% if user_signed_in? %>
     <%= link_to "新規投稿", new_post_path, class: "btn btn-success mt-3" %>

@@ -36,4 +36,12 @@ Rails.application.routes.draw do
     # ▼ Stamps を Posts にネスト（これが正しい）
     resources :stamps, only: [:create, :destroy]
   end
+
+  resources :posts do
+    collection do
+      get :mypage   # ← 🎯 ここをマイページとして使う
+      get :calendar
+    end
+    resources :stamps, only: [:create, :destroy]
+  end
 end
